@@ -11,26 +11,39 @@ Sav programski kod potrebno je verzionirati u glavnoj **master** grani i **obvez
 
 Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra raditi na ovom projektu. A sada, vrijeme je da prijavite vaš projekt. Za prijavu vašeg projektnog prijedloga molimo vas koristite **predložak** koji je naveden u nastavku, a započnite tako da kliknete na *olovku* u desnom gornjem kutu ovoga dokumenta :) 
 
-# Naziv projekta
-(u redak iznad navedite kratki proizvoljni naziv projekta prikladan akademskoj zajednici, a ovaj tekst obrišite)
+# FitZona
+
 
 ## Projektni tim
 
 Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
 ------------  | ------------------- | ----- | ---------------------
-Ime i prezime | mojaadresa@foi.hr | 000000000 | githubuser
-Ime i prezime | ... | ... | ...
+Tomislav Smetisko | tsmetisko@foi.hr | 0016143232 | tsmetisko
+David Viljevac | dviljevac@foi.hr | 0016143211 | Spockz9877
+Petar Šemiga | psemiga@foi.hr | 0016141857 | petarsemiga
+Leon Špiranec | lspiranec@foi.hr | 0016144710 | leonspiranec19
 
 ## Opis domene
-Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.
+FitZona je aplikacija koja nam omogućava najam i rezervaciju sportskih prostora u nekom sportskom centru. Rad aplikacije započinje registracijom u sustav. Nakon uspješne registracije, korisnik prijavom pristupa aplikaciji. Početni zaslon aplikacije nam pruža uvid u sve sportske prostore koje aplikacija pokriva. Odabirom pojedinog prostora, korisnik može pregledati dostupnost i raspored odvijanja aktivnosti u tom prostoru. Ako korisnik želi rezervirati ili unajmiti prostor, potrebno je ispuniti podatke za rezervaciju. Također korisnik se može priključiti aktivnostima koje su na raspolaganju u određenom prostoru. Korisniku se nudi pregled te pisanje recenzija za određeni prostor te u svakom trenutku može promijeniti korisničke podatke (korisničko ime, lozinka). Aplikacija bi podržavala dvije uloge tj. administracija i zaposlenici.
 
 ## Specifikacija projekta
 Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda. Pobrojite osnovne funkcionalnosti i za svaku naznačite ime odgovornog člana tima. Opišite buduću arhitekturu programskog proizvoda. Obratite pozornost da bi arhitektura trebala biti višeslojna s odvojenom (dislociranom) bazom podatka. Također uzmite u obzir da bi svaki član tima treba biti odgovorana za otprilike 3 funkcionalnosti, te da bi opterećenje članova tima trebalo biti ujednačeno. Priložite odgovarajuće dijagrame i skice gdje je to prikladno. Funkcionalnosti sustava bobrojite u tablici ispod koristeći predložak koji slijedi:
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
+F01 | Registracija | Za pristup aplikaciji potrebna je registracija korisnika (uloga u sustavu kao korisnik ili zaposlenik) svojim osobnim podacima.| Leon Špiranec
+F02 | Prijava | Prije korištenja aplikacije se korisnik treba prijaviti kao obični korisnik ili zaposlenik | Leon Špiranec
+F03 | Evidencija prostora | Zaposlenik može dodavati, ažurirati i brisati termine nekon prostora. | Petar Šemiga
+F04 | Evidencija zaposlenika | Zaposlenici imaju mogućnost pregleda svih ostalih zaposlenika, mijenjanje uloga te evidenciju smjena. | Petar Šemiga
+F05 | Rezervacija prostora | Korisnici mogu pregledati i rezervirati termin u željenom prostoru, ovisno žele li svoj termin ili se priključiti već postojećem. | Leon Špiranec
+F06 | Plaćanje prostora | Korisnik odabire način plaćanja, ima opciju plačanja gotovinom u centru ili karticom preko aplikacije. | David Viljevac
+F07 | Ažuriranje korisničkih podataka | Korisnik ima mogućnost mijenjaja osobnih podataka | Tomislav Smetiško
+F08 | Obavijesti | zaposlenik dobiva obavijesti o rezervaciji, upitima i sl. Kada zaposlenik potvrdi rezervaciju, korisnik prima obavijest o uspješnoj rezervaciji. | David Viljevac
+F09 | Upiti | Korisnik može slati upite o prostoru, rezervaciji, bilo čemu što ga zanima. Na upite odgovara zaposlenik | Tomislav Smetiško
+F10 | Recenzije | Nakon korištenja određenog prostora, korisnik ima mogućnost ocijeniti prostor i uslugu te ostaviti komentar. | Petar Šemiga
+F11 | Izvješće | Izvješća o korištenosti pojedinih prostora | Tomislav Smetiško
+F12 | Mjesečna članarina | Korisnik ima popuste i dodatne mogućnosti prilikom najma prostora | David Viljevac
+
 
 ## Tehnologije i oprema
-Umjesto ovih uputa jasno popišite sve tehnologije, alate i opremu koju ćete koristiti pri implementaciji vašeg rješenja. Ne zaboravite planirati korištenje tehnologija u aktivnostima kao što su projektni menadžment ili priprema dokumentacije. Tehnologije koje ćete koristiti bi trebale biti javno dostupne, a ako ih ne budemo obrađivali na vježbama u vašoj dokumentaciji ćete morati navesti način preuzimanja, instaliranja i korištenja onih tehnologija koje su neopbodne kako bi se vaš programski proizvod preveo i pokrenuo. Pazite da svi alati koje ćete koristiti moraju imati odgovarajuću licencu.
+Microsoft Visual Studio 2022, C# (.NET Framework), MySQL, Draw.io, GitHub, Microsoft Word
