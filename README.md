@@ -35,7 +35,7 @@ F01 | Registracija | Za pristup aplikaciji potrebna je registracija korisnika (u
 F02 | Prijava | Prije korištenja aplikacije se korisnik treba prijaviti kao obični korisnik ili zaposlenik | Leon Špiranec
 F03 | Evidencija prostora | Zaposlenik može dodavati, ažurirati i brisati termine nekon prostora. | Petar Šemiga
 F04 | Evidencija zaposlenika | Zaposlenici imaju mogućnost pregleda svih ostalih zaposlenika, mijenjanje uloga te evidenciju smjena. | Petar Šemiga
-F05 | Rezervacija prostora | Korisnici mogu pregledati i rezervirati termin u željenom prostoru, ovisno žele li svoj termin ili se priključiti već postojećem. | Leon Špiranec
+F05 | Rezervacija sportskih prostora | Korisnici mogu pregledati i rezervirati termin u željenom prostoru, ovisno žele li svoj termin ili se priključiti već postojećem. | Leon Špiranec
 F06 | Plaćanje prostora | Korisnik odabire način plaćanja, ima opciju plačanja gotovinom u centru ili karticom preko aplikacije. | David Viljevac
 F07 | Ažuriranje korisničkih podataka | Korisnik ima mogućnost mijenjaja osobnih podataka | Tomislav Smetiško
 F08 | Obavijesti | zaposlenik dobiva obavijesti o rezervaciji, upitima i sl. Kada zaposlenik potvrdi rezervaciju, korisnik prima obavijest o uspješnoj rezervaciji. | David Viljevac
@@ -43,6 +43,10 @@ F09 | Upiti | Korisnik može slati upite o prostoru, rezervaciji, bilo čemu št
 F10 | Recenzije | Nakon korištenja određenog prostora, korisnik ima mogućnost ocijeniti prostor i uslugu te ostaviti komentar. | Petar Šemiga
 F11 | Izvješće | Izvješća o korištenosti pojedinih prostora | Tomislav Smetiško
 F12 | Mjesečna članarina | Korisnik ima popuste i dodatne mogućnosti prilikom najma prostora | David Viljevac
+F13 | Najam dodatne sportske opreme | Korisnik je u mogućnosti unajmiti sportske rekvizite (lopte, reketi, sprave i pomagala...) | Petar Šemiga 
+F14 | Najam privatnog trenera | Korisnik najmom privatnog trenera ima mogućnost individualnih treninga | Tomislav Smetiško
+F15 | Priključivanje zdravstvenim aktivnositima | Korisnik je u mogućnosti sudjelovati na terapijama i rehabilitacijama | Leon Špiranec 
+F16 | Prijava za izradu vlastitih trening programa | Korisnik se može prijaviti za izradu vlastitog programa u koji se mogu uključiti ostali korisnici | David Viljevac 
 
 
 ## Tehnologije i oprema
