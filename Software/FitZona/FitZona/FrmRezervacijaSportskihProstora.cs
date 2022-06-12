@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FitZona
 {
-    public partial class Form1 : Form
+    public partial class FrmRezervacijaSportskihProstora : Form
     {
-        public Form1()
+        public FrmRezervacijaSportskihProstora()
         {
             InitializeComponent();
         }
