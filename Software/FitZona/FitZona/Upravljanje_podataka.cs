@@ -28,6 +28,21 @@ namespace FitZona
             }
         }
 
+        public string DohvatiCijenuClanarine(int idKorisnika)
+        {
+            string cijena = "";
+            using (var ctx = new FitZona_Entitiess())
+            {
+                var query = from k in ctx.Korisnik
+                            from p in ctx.Paket
+                            where k.korisnik_id == idKorisnika && p.paket_id==k.paket_id
+                            select p.cijena;
+                double? paketCijena = query.FirstOrDefault();
+                cijena = paketCijena.ToString();
+                return cijena;
+            }
+        }
+
         public string DohvatiPopust(int idKorisnika)
         {
             string popust = "";
@@ -127,7 +142,8 @@ namespace FitZona
 
         internal void OtvoriMjesecnaClanarina()
         {
-            throw new NotImplementedException();
+            FrmPlacanjeMjesecneClanarine frm = new FrmPlacanjeMjesecneClanarine();
+            frm.ShowDialog();
         }
 
         internal void OtvoriPlacanjeProstora()
