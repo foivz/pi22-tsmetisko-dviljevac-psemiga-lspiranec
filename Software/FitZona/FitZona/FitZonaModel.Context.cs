@@ -13,10 +13,10 @@ namespace FitZona
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FitZona_Entities : DbContext
+    public partial class FitZona_Entitiess : DbContext
     {
-        public FitZona_Entities()
-            : base("name=FitZona_Entities")
+        public FitZona_Entitiess()
+            : base("name=FitZona_Entitiess")
         {
         }
     
@@ -28,6 +28,7 @@ namespace FitZona
         public virtual DbSet<Grupa> Grupa { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<Paket> Paket { get; set; }
+        public virtual DbSet<prostor_termin> prostor_termin { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
         public virtual DbSet<Rezervacija_opreme> Rezervacija_opreme { get; set; }
         public virtual DbSet<Sportska_oprema> Sportska_oprema { get; set; }
