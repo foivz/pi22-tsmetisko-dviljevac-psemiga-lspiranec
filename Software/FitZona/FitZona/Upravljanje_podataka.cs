@@ -28,6 +28,73 @@ namespace FitZona
             }
         }
 
+        public string DohvatiPopust(int idKorisnika)
+        {
+            string popust = "";
+            using (var ctx = new FitZona_Entitiess())
+            {
+                var query = from k in ctx.Korisnik
+                            
+                            where k.korisnik_id == idKorisnika
+                            select k.paket_id;
+                int? paketID = query.FirstOrDefault();
+
+                if (paketID == 1)
+                {
+                    popust = "10";
+                    
+                }
+                else if (paketID == 2)
+                {
+                    popust = "20";
+                    
+                }
+                else if (paketID == 3)
+                {
+                    popust = "30";
+                    
+                }
+                return popust;
+            }
+        }
+
+        public object DohvatiRezervacijeKorisnika(string idKorisnika)
+        {
+            int idKor = int.Parse(idKorisnika);
+            using (var ctx = new FitZona_Entitiess())
+            {
+                var query = from r in ctx.Rezervacija
+                            from s in ctx.Sportski_prostor
+                            where s.sportski_prostor_id == r.sportski_prostor_id && r.korisnik_id == idKor
+                            select new
+                            {
+                                r.rezervacija_id,
+                                s.ime,
+                                r.datum,
+                                r.vrijeme_od,
+                                r.duljina_rezervacija_sati,
+                                r.plaćena
+                            };
+
+                return query.ToList();
+            }
+        }
+
+        public void PlatiRezervaciju(string idRezervacije)
+        {
+            int idRez = int.Parse(idRezervacije);
+            using (var ctx = new FitZona_Entitiess())
+            {
+                var query = from r in ctx.Rezervacija
+                            where r.rezervacija_id == idRez
+                            select r;
+                Rezervacija dohvacena = query.FirstOrDefault();
+                
+                dohvacena.plaćena = 1;
+                ctx.SaveChanges();
+            }
+        }
+
         public void UpisiRezervaciju(Rezervacija nova)
         {
             using (var ctx = new FitZona_Entitiess())
@@ -56,6 +123,30 @@ namespace FitZona
                 }
                 ctx.SaveChanges();
             }
+        }
+
+        internal void OtvoriMjesecnaClanarina()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OtvoriPlacanjeProstora()
+        {
+            FrmPlacanjeRezerviranogProstora frm = new FrmPlacanjeRezerviranogProstora();
+            frm.ShowDialog();
+        }
+
+        internal void OtvoriPrijavuZaIzraduVlastitihPrograma()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OtvoriRezervacijuSportskihProstora()
+        {
+            
+            FrmRezervacijaSportskihProstora frm = new FrmRezervacijaSportskihProstora();
+            frm.ShowDialog();
+
         }
     }
 }

@@ -118,6 +118,7 @@ namespace FitZona
             this.buttonMeniRezervacijaSportskihProstora.TabIndex = 1;
             this.buttonMeniRezervacijaSportskihProstora.Text = "Rezervacija sportskih prostora";
             this.buttonMeniRezervacijaSportskihProstora.UseVisualStyleBackColor = true;
+            this.buttonMeniRezervacijaSportskihProstora.Click += new System.EventHandler(this.buttonMeniRezervacijaSportskihProstora_Click);
             // 
             // buttonMeniPlacanjeProstora
             // 
@@ -134,6 +135,7 @@ namespace FitZona
             this.buttonMeniPlacanjeProstora.TabIndex = 2;
             this.buttonMeniPlacanjeProstora.Text = "Plaćanje rezerviranih prostora";
             this.buttonMeniPlacanjeProstora.UseVisualStyleBackColor = true;
+            this.buttonMeniPlacanjeProstora.Click += new System.EventHandler(this.buttonMeniPlacanjeProstora_Click);
             // 
             // buttonMeniMjesecnaClanarina
             // 
@@ -150,6 +152,7 @@ namespace FitZona
             this.buttonMeniMjesecnaClanarina.TabIndex = 3;
             this.buttonMeniMjesecnaClanarina.Text = "Mjesečna članarina";
             this.buttonMeniMjesecnaClanarina.UseVisualStyleBackColor = true;
+            this.buttonMeniMjesecnaClanarina.Click += new System.EventHandler(this.buttonMeniMjesecnaClanarina_Click);
             // 
             // buttonMeniPrijavaZaIzraduVlastitihPrograma
             // 
@@ -166,6 +169,7 @@ namespace FitZona
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma.TabIndex = 4;
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma.Text = "Prijava za izradu vlastitih trening programa";
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma.UseVisualStyleBackColor = true;
+            this.buttonMeniPrijavaZaIzraduVlastitihPrograma.Click += new System.EventHandler(this.buttonMeniPrijavaZaIzraduVlastitihPrograma_Click);
             // 
             // panelHardKodiranje
             // 
