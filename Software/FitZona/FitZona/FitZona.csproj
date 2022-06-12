@@ -70,6 +70,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FrmPlacanjeOnlineRezervacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlacanjeOnlineRezervacija.Designer.cs">
+      <DependentUpon>FrmPlacanjeOnlineRezervacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPlacanjeRezerviranogProstora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlacanjeRezerviranogProstora.Designer.cs">
+      <DependentUpon>FrmPlacanjeRezerviranogProstora.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRezervacijaSportskihProstora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,12 @@
     <Compile Include="Zaposlenik.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmPlacanjeOnlineRezervacija.resx">
+      <DependentUpon>FrmPlacanjeOnlineRezervacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlacanjeRezerviranogProstora.resx">
+      <DependentUpon>FrmPlacanjeRezerviranogProstora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRezervacijaSportskihProstora.resx">
       <DependentUpon>FrmRezervacijaSportskihProstora.cs</DependentUpon>
     </EmbeddedResource>

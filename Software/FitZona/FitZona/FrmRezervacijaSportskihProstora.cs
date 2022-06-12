@@ -22,6 +22,7 @@ namespace FitZona
         private void FrmRezervacijaSportskihProstora_Load(object sender, EventArgs e)
         {
             Osvjezi();
+            buttonMeniRezervacijaSportskihProstora.Enabled = false;
         }
 
         private void Osvjezi()
@@ -47,6 +48,30 @@ namespace FitZona
             Osvjezi();
         }
 
-        
+        private void buttonMeniRezervacijaSportskihProstora_Click(object sender, EventArgs e)
+        {
+            //Onemogucen gumb, umjesto implementacije otvaranje i zatvaranja dialoga
+        }
+
+        private void buttonMeniPlacanjeProstora_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            u.OtvoriPlacanjeProstora();
+            this.Close();
+        }
+
+        private void buttonMeniMjesecnaClanarina_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            u.OtvoriMjesecnaClanarina();
+            this.Close();
+        }
+
+        private void buttonMeniPrijavaZaIzraduVlastitihPrograma_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            u.OtvoriPrijavuZaIzraduVlastitihPrograma();
+            this.Close();
+        }
     }
 }
