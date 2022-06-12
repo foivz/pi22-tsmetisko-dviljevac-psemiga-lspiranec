@@ -17,14 +17,14 @@ namespace FitZona
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Termin()
         {
-            this.Sportski_prostor = new HashSet<Sportski_prostor>();
+            this.prostor_termin = new HashSet<prostor_termin>();
         }
     
         public int termin_id { get; set; }
-        public Nullable<System.TimeSpan> vrijeme_od { get; set; }
         public Nullable<System.TimeSpan> vrijeme_do { get; set; }
+        public Nullable<System.TimeSpan> vrijeme_od { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sportski_prostor> Sportski_prostor { get; set; }
+        public virtual ICollection<prostor_termin> prostor_termin { get; set; }
     }
 }

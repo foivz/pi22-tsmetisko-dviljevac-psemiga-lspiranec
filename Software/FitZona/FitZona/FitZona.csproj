@@ -55,15 +55,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModelFitZona.Context.cs">
+    <Compile Include="FitZonaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModelFitZona.Context.tt</DependentUpon>
+      <DependentUpon>FitZonaModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModelFitZona.Designer.cs">
+    <Compile Include="FitZonaModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModelFitZona.edmx</DependentUpon>
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FitZonaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="FrmRezervacijaSportskihProstora.cs">
       <SubType>Form</SubType>
@@ -71,8 +76,42 @@
     <Compile Include="FrmRezervacijaSportskihProstora.Designer.cs">
       <DependentUpon>FrmRezervacijaSportskihProstora.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grupa.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paket.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="prostor_termin.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervacija.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervacija_opreme.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sportska_oprema.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sportski_prostor.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Termin.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Upravljanje_podataka.cs" />
+    <Compile Include="Vlastiti_trening.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zaposlenik.cs">
+      <DependentUpon>FitZonaModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmRezervacijaSportskihProstora.resx">
       <DependentUpon>FrmRezervacijaSportskihProstora.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,12 +124,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="DataModelFitZona.edmx">
+    <EntityDeploy Include="FitZonaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModelFitZona.Designer.cs</LastGenOutput>
+      <LastGenOutput>FitZonaModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataModelFitZona.edmx.diagram">
-      <DependentUpon>DataModelFitZona.edmx</DependentUpon>
+    <None Include="FitZonaModel.edmx.diagram">
+      <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -107,13 +146,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModelFitZona.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataModelFitZona.Context.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="FitZonaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FitZonaModel.edmx</DependentUpon>
+      <LastGenOutput>FitZonaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FitZonaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FitZonaModel.edmx</DependentUpon>
+      <LastGenOutput>FitZonaModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
