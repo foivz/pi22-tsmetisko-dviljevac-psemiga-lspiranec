@@ -70,6 +70,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FrmPlacanjeMjesecneClanarine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlacanjeMjesecneClanarine.Designer.cs">
+      <DependentUpon>FrmPlacanjeMjesecneClanarine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPlacanjeMjesecneClanarineOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPlacanjeMjesecneClanarineOnline.Designer.cs">
+      <DependentUpon>FrmPlacanjeMjesecneClanarineOnline.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPlacanjeOnlineRezervacija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +136,12 @@
     <Compile Include="Zaposlenik.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmPlacanjeMjesecneClanarine.resx">
+      <DependentUpon>FrmPlacanjeMjesecneClanarine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlacanjeMjesecneClanarineOnline.resx">
+      <DependentUpon>FrmPlacanjeMjesecneClanarineOnline.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPlacanjeOnlineRezervacija.resx">
       <DependentUpon>FrmPlacanjeOnlineRezervacija.cs</DependentUpon>
     </EmbeddedResource>

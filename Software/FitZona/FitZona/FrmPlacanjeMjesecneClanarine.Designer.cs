@@ -1,7 +1,7 @@
 ﻿
 namespace FitZona
 {
-    partial class FrmPlacanjeRezerviranogProstora
+    partial class FrmPlacanjeMjesecneClanarine
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@ namespace FitZona
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelIzbornik = new System.Windows.Forms.Panel();
+            this.labelLogoFitZona = new System.Windows.Forms.Label();
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma = new System.Windows.Forms.Button();
             this.buttonMeniMjesecnaClanarina = new System.Windows.Forms.Button();
             this.buttonMeniPlacanjeProstora = new System.Windows.Forms.Button();
             this.buttonMeniRezervacijaSportskihProstora = new System.Windows.Forms.Button();
+            this.panelIzbornik = new System.Windows.Forms.Panel();
             this.panelLogoFitZona = new System.Windows.Forms.Panel();
-            this.labelLogoFitZona = new System.Windows.Forms.Label();
             this.panelHardKodiranje = new System.Windows.Forms.Panel();
             this.textBoxHardCodePaketID = new System.Windows.Forms.TextBox();
             this.labelHardCodePaketID = new System.Windows.Forms.Label();
@@ -56,28 +56,28 @@ namespace FitZona
             this.labelHardCodeImeKorisnika = new System.Windows.Forms.Label();
             this.labelHardCodeIDKorisnika = new System.Windows.Forms.Label();
             this.labelHardKodiranje = new System.Windows.Forms.Label();
-            this.labelPopisRezervacija = new System.Windows.Forms.Label();
-            this.dataGridViewRezervacija = new System.Windows.Forms.DataGridView();
-            this.buttonPlatiRezervaciju = new System.Windows.Forms.Button();
+            this.buttonPlatiClanarinu = new System.Windows.Forms.Button();
+            this.labelCijenaZaPlatiti = new System.Windows.Forms.Label();
+            this.textBoxCijenaClanarine = new System.Windows.Forms.TextBox();
+            this.labelPlacenaClanarina = new System.Windows.Forms.Label();
+            this.labelPlacenaBool = new System.Windows.Forms.Label();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRezervacija)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelIzbornik
+            // labelLogoFitZona
             // 
-            this.panelIzbornik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(46)))));
-            this.panelIzbornik.Controls.Add(this.buttonMeniPrijavaZaIzraduVlastitihPrograma);
-            this.panelIzbornik.Controls.Add(this.buttonMeniMjesecnaClanarina);
-            this.panelIzbornik.Controls.Add(this.buttonMeniPlacanjeProstora);
-            this.panelIzbornik.Controls.Add(this.buttonMeniRezervacijaSportskihProstora);
-            this.panelIzbornik.Controls.Add(this.panelLogoFitZona);
-            this.panelIzbornik.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelIzbornik.Location = new System.Drawing.Point(0, 0);
-            this.panelIzbornik.Name = "panelIzbornik";
-            this.panelIzbornik.Size = new System.Drawing.Size(200, 560);
-            this.panelIzbornik.TabIndex = 1;
+            this.labelLogoFitZona.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelLogoFitZona.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLogoFitZona.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLogoFitZona.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelLogoFitZona.Location = new System.Drawing.Point(0, 0);
+            this.labelLogoFitZona.Name = "labelLogoFitZona";
+            this.labelLogoFitZona.Size = new System.Drawing.Size(200, 100);
+            this.labelLogoFitZona.TabIndex = 0;
+            this.labelLogoFitZona.Text = "FitZona";
+            this.labelLogoFitZona.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonMeniPrijavaZaIzraduVlastitihPrograma
             // 
@@ -94,7 +94,6 @@ namespace FitZona
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma.TabIndex = 4;
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma.Text = "Prijava za izradu vlastitih trening programa";
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma.UseVisualStyleBackColor = true;
-            this.buttonMeniPrijavaZaIzraduVlastitihPrograma.Click += new System.EventHandler(this.buttonMeniPrijavaZaIzraduVlastitihPrograma_Click);
             // 
             // buttonMeniMjesecnaClanarina
             // 
@@ -111,7 +110,6 @@ namespace FitZona
             this.buttonMeniMjesecnaClanarina.TabIndex = 3;
             this.buttonMeniMjesecnaClanarina.Text = "Mjesečna članarina";
             this.buttonMeniMjesecnaClanarina.UseVisualStyleBackColor = true;
-            this.buttonMeniMjesecnaClanarina.Click += new System.EventHandler(this.buttonMeniMjesecnaClanarina_Click);
             // 
             // buttonMeniPlacanjeProstora
             // 
@@ -144,7 +142,20 @@ namespace FitZona
             this.buttonMeniRezervacijaSportskihProstora.TabIndex = 1;
             this.buttonMeniRezervacijaSportskihProstora.Text = "Rezervacija sportskih prostora";
             this.buttonMeniRezervacijaSportskihProstora.UseVisualStyleBackColor = true;
-            this.buttonMeniRezervacijaSportskihProstora.Click += new System.EventHandler(this.buttonMeniRezervacijaSportskihProstora_Click);
+            // 
+            // panelIzbornik
+            // 
+            this.panelIzbornik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(46)))));
+            this.panelIzbornik.Controls.Add(this.buttonMeniPrijavaZaIzraduVlastitihPrograma);
+            this.panelIzbornik.Controls.Add(this.buttonMeniMjesecnaClanarina);
+            this.panelIzbornik.Controls.Add(this.buttonMeniPlacanjeProstora);
+            this.panelIzbornik.Controls.Add(this.buttonMeniRezervacijaSportskihProstora);
+            this.panelIzbornik.Controls.Add(this.panelLogoFitZona);
+            this.panelIzbornik.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelIzbornik.Location = new System.Drawing.Point(0, 0);
+            this.panelIzbornik.Name = "panelIzbornik";
+            this.panelIzbornik.Size = new System.Drawing.Size(200, 450);
+            this.panelIzbornik.TabIndex = 1;
             // 
             // panelLogoFitZona
             // 
@@ -154,19 +165,6 @@ namespace FitZona
             this.panelLogoFitZona.Name = "panelLogoFitZona";
             this.panelLogoFitZona.Size = new System.Drawing.Size(200, 100);
             this.panelLogoFitZona.TabIndex = 0;
-            // 
-            // labelLogoFitZona
-            // 
-            this.labelLogoFitZona.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelLogoFitZona.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLogoFitZona.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogoFitZona.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelLogoFitZona.Location = new System.Drawing.Point(0, 0);
-            this.labelLogoFitZona.Name = "labelLogoFitZona";
-            this.labelLogoFitZona.Size = new System.Drawing.Size(200, 100);
-            this.labelLogoFitZona.TabIndex = 0;
-            this.labelLogoFitZona.Text = "FitZona";
-            this.labelLogoFitZona.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelHardKodiranje
             // 
@@ -190,9 +188,9 @@ namespace FitZona
             this.panelHardKodiranje.Controls.Add(this.labelHardCodeIDKorisnika);
             this.panelHardKodiranje.Controls.Add(this.labelHardKodiranje);
             this.panelHardKodiranje.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelHardKodiranje.Location = new System.Drawing.Point(1093, 0);
+            this.panelHardKodiranje.Location = new System.Drawing.Point(600, 0);
             this.panelHardKodiranje.Name = "panelHardKodiranje";
-            this.panelHardKodiranje.Size = new System.Drawing.Size(200, 560);
+            this.panelHardKodiranje.Size = new System.Drawing.Size(200, 450);
             this.panelHardKodiranje.TabIndex = 2;
             // 
             // textBoxHardCodePaketID
@@ -380,63 +378,84 @@ namespace FitZona
             this.labelHardKodiranje.Text = "Hard kodiranje - LogIn";
             this.labelHardKodiranje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelPopisRezervacija
+            // buttonPlatiClanarinu
             // 
-            this.labelPopisRezervacija.AutoSize = true;
-            this.labelPopisRezervacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPopisRezervacija.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelPopisRezervacija.Location = new System.Drawing.Point(211, 1);
-            this.labelPopisRezervacija.Name = "labelPopisRezervacija";
-            this.labelPopisRezervacija.Size = new System.Drawing.Size(169, 16);
-            this.labelPopisRezervacija.TabIndex = 5;
-            this.labelPopisRezervacija.Text = "Popis rezervacija korisnika";
+            this.buttonPlatiClanarinu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(46)))));
+            this.buttonPlatiClanarinu.FlatAppearance.BorderSize = 0;
+            this.buttonPlatiClanarinu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
+            this.buttonPlatiClanarinu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
+            this.buttonPlatiClanarinu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPlatiClanarinu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlatiClanarinu.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonPlatiClanarinu.Location = new System.Drawing.Point(449, 401);
+            this.buttonPlatiClanarinu.Name = "buttonPlatiClanarinu";
+            this.buttonPlatiClanarinu.Size = new System.Drawing.Size(145, 46);
+            this.buttonPlatiClanarinu.TabIndex = 6;
+            this.buttonPlatiClanarinu.Text = "Plati članarinu";
+            this.buttonPlatiClanarinu.UseVisualStyleBackColor = false;
+            this.buttonPlatiClanarinu.Click += new System.EventHandler(this.buttonPlatiRezervaciju_Click);
             // 
-            // dataGridViewRezervacija
+            // labelCijenaZaPlatiti
             // 
-            this.dataGridViewRezervacija.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(56)))), ((int)(((byte)(140)))));
-            this.dataGridViewRezervacija.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRezervacija.Location = new System.Drawing.Point(206, 20);
-            this.dataGridViewRezervacija.Name = "dataGridViewRezervacija";
-            this.dataGridViewRezervacija.Size = new System.Drawing.Size(881, 320);
-            this.dataGridViewRezervacija.TabIndex = 4;
+            this.labelCijenaZaPlatiti.AutoSize = true;
+            this.labelCijenaZaPlatiti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCijenaZaPlatiti.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCijenaZaPlatiti.Location = new System.Drawing.Point(206, 9);
+            this.labelCijenaZaPlatiti.Name = "labelCijenaZaPlatiti";
+            this.labelCijenaZaPlatiti.Size = new System.Drawing.Size(107, 16);
+            this.labelCijenaZaPlatiti.TabIndex = 7;
+            this.labelCijenaZaPlatiti.Text = "Cijena članarine:";
             // 
-            // buttonPlatiRezervaciju
+            // textBoxCijenaClanarine
             // 
-            this.buttonPlatiRezervaciju.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(46)))));
-            this.buttonPlatiRezervaciju.FlatAppearance.BorderSize = 0;
-            this.buttonPlatiRezervaciju.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
-            this.buttonPlatiRezervaciju.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
-            this.buttonPlatiRezervaciju.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlatiRezervaciju.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlatiRezervaciju.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPlatiRezervaciju.Location = new System.Drawing.Point(887, 348);
-            this.buttonPlatiRezervaciju.Name = "buttonPlatiRezervaciju";
-            this.buttonPlatiRezervaciju.Size = new System.Drawing.Size(200, 46);
-            this.buttonPlatiRezervaciju.TabIndex = 5;
-            this.buttonPlatiRezervaciju.Text = "Plati rezervaciju";
-            this.buttonPlatiRezervaciju.UseVisualStyleBackColor = false;
-            this.buttonPlatiRezervaciju.Click += new System.EventHandler(this.buttonPlatiRezervaciju_Click);
+            this.textBoxCijenaClanarine.Location = new System.Drawing.Point(209, 28);
+            this.textBoxCijenaClanarine.Name = "textBoxCijenaClanarine";
+            this.textBoxCijenaClanarine.Size = new System.Drawing.Size(104, 20);
+            this.textBoxCijenaClanarine.TabIndex = 21;
             // 
-            // FrmPlacanjeRezerviranogProstora
+            // labelPlacenaClanarina
+            // 
+            this.labelPlacenaClanarina.AutoSize = true;
+            this.labelPlacenaClanarina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlacenaClanarina.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelPlacenaClanarina.Location = new System.Drawing.Point(206, 61);
+            this.labelPlacenaClanarina.Name = "labelPlacenaClanarina";
+            this.labelPlacenaClanarina.Size = new System.Drawing.Size(120, 16);
+            this.labelPlacenaClanarina.TabIndex = 22;
+            this.labelPlacenaClanarina.Text = "Članarina plaćena:";
+            // 
+            // labelPlacenaBool
+            // 
+            this.labelPlacenaBool.AutoSize = true;
+            this.labelPlacenaBool.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlacenaBool.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelPlacenaBool.Location = new System.Drawing.Point(345, 61);
+            this.labelPlacenaBool.Name = "labelPlacenaBool";
+            this.labelPlacenaBool.Size = new System.Drawing.Size(27, 16);
+            this.labelPlacenaBool.TabIndex = 23;
+            this.labelPlacenaBool.Text = "NE";
+            // 
+            // FrmPlacanjeMjesecneClanarine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(56)))), ((int)(((byte)(140)))));
-            this.ClientSize = new System.Drawing.Size(1293, 560);
-            this.Controls.Add(this.buttonPlatiRezervaciju);
-            this.Controls.Add(this.labelPopisRezervacija);
-            this.Controls.Add(this.dataGridViewRezervacija);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelPlacenaBool);
+            this.Controls.Add(this.labelPlacenaClanarina);
+            this.Controls.Add(this.textBoxCijenaClanarine);
+            this.Controls.Add(this.labelCijenaZaPlatiti);
+            this.Controls.Add(this.buttonPlatiClanarinu);
             this.Controls.Add(this.panelHardKodiranje);
             this.Controls.Add(this.panelIzbornik);
-            this.Name = "FrmPlacanjeRezerviranogProstora";
+            this.Name = "FrmPlacanjeMjesecneClanarine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Placanje rezerviranog prostora";
-            this.Load += new System.EventHandler(this.FrmPlacanjeRezerviranogProstora_Load);
+            this.Text = "Placanje mjesecne clanarine";
+            this.Load += new System.EventHandler(this.FrmPlacanjeMjesecneClanarine_Load);
             this.panelIzbornik.ResumeLayout(false);
             this.panelLogoFitZona.ResumeLayout(false);
             this.panelHardKodiranje.ResumeLayout(false);
             this.panelHardKodiranje.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRezervacija)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,13 +463,13 @@ namespace FitZona
 
         #endregion
 
-        private System.Windows.Forms.Panel panelIzbornik;
+        private System.Windows.Forms.Label labelLogoFitZona;
         private System.Windows.Forms.Button buttonMeniPrijavaZaIzraduVlastitihPrograma;
         private System.Windows.Forms.Button buttonMeniMjesecnaClanarina;
         private System.Windows.Forms.Button buttonMeniPlacanjeProstora;
         private System.Windows.Forms.Button buttonMeniRezervacijaSportskihProstora;
+        private System.Windows.Forms.Panel panelIzbornik;
         private System.Windows.Forms.Panel panelLogoFitZona;
-        private System.Windows.Forms.Label labelLogoFitZona;
         private System.Windows.Forms.Panel panelHardKodiranje;
         private System.Windows.Forms.TextBox textBoxHardCodePaketID;
         private System.Windows.Forms.Label labelHardCodePaketID;
@@ -471,8 +490,10 @@ namespace FitZona
         private System.Windows.Forms.Label labelHardCodeImeKorisnika;
         private System.Windows.Forms.Label labelHardCodeIDKorisnika;
         private System.Windows.Forms.Label labelHardKodiranje;
-        private System.Windows.Forms.Label labelPopisRezervacija;
-        private System.Windows.Forms.DataGridView dataGridViewRezervacija;
-        private System.Windows.Forms.Button buttonPlatiRezervaciju;
+        private System.Windows.Forms.Button buttonPlatiClanarinu;
+        private System.Windows.Forms.Label labelCijenaZaPlatiti;
+        private System.Windows.Forms.TextBox textBoxCijenaClanarine;
+        private System.Windows.Forms.Label labelPlacenaClanarina;
+        private System.Windows.Forms.Label labelPlacenaBool;
     }
 }
