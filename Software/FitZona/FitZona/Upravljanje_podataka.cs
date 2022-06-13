@@ -43,6 +43,30 @@ namespace FitZona
             }
         }
 
+        internal TimeSpan IzradiProgram(string sportskiProstor, string vrijemeIzradeOd, string ime, string idKorisnika)
+        {
+            
+            DateTime sad = DateTime.Now;
+            TimeSpan vrijemeOdDohvaceno = TimeSpan.Parse(vrijemeIzradeOd);
+            DateTime vrijeme = new DateTime(sad.Year, sad.Month, sad.Day, vrijemeOdDohvaceno.Hours, vrijemeOdDohvaceno.Minutes, vrijemeOdDohvaceno.Seconds);
+            int IDKor = int.Parse(idKorisnika);
+            int IDSport = int.Parse(sportskiProstor);
+            Vlastiti_trening trening = new Vlastiti_trening()
+            {
+                ime = ime,
+                vrijeme = vrijeme,
+                korisnik_id = IDKor,
+                sportski_prostor_id = IDSport
+            };
+            using (var ctx = new FitZona_Entitiess())
+            {
+                ctx.Vlastiti_trening.Add(trening);
+                ctx.SaveChanges();
+            }
+            return vrijemeOdDohvaceno;
+            
+        }
+
         public string DohvatiPopust(int idKorisnika)
         {
             string popust = "";
@@ -154,7 +178,8 @@ namespace FitZona
 
         internal void OtvoriPrijavuZaIzraduVlastitihPrograma()
         {
-            throw new NotImplementedException();
+            FrmIzradaVlastitihPrograma frm = new FrmIzradaVlastitihPrograma();
+            frm.ShowDialog();
         }
 
         internal void OtvoriRezervacijuSportskihProstora()

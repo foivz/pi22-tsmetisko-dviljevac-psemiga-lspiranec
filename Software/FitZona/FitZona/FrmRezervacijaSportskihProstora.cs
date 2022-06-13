@@ -50,7 +50,7 @@ namespace FitZona
 
         private void buttonMeniRezervacijaSportskihProstora_Click(object sender, EventArgs e)
         {
-            //Onemogucen gumb, umjesto implementacije otvaranje i zatvaranja dialoga
+            //Onemogucen gumb umjesto implementacije otvaranje i zatvaranja dialoga
         }
 
         private void buttonMeniPlacanjeProstora_Click(object sender, EventArgs e)
