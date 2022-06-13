@@ -23,7 +23,7 @@ namespace FitZona
 
         private void buttonNaplati_Click(object sender, EventArgs e)
         {
-            if (textBoxEmail.Text != "" && textBoxKartica.Text != "" && textBoxCVC.Text != "" && textBoxDatumIsteka.Text != "" && textBoxAdresaZaNaplatu.Text != "" && textBoxGrad.Text != "" && textBoxZupanija.Text != "" && textBoxPostanskiBroj.Text != "")
+            if (textBoxEmail.Text.Contains("@") && textBoxKartica.Text.Length == 16 && textBoxCVC.Text.Length == 3 && textBoxDatumIsteka.Text.Contains("/") && textBoxDatumIsteka.Text.Length == 5 && textBoxAdresaZaNaplatu.Text != "" && textBoxGrad.Text != "" && textBoxZupanija.Text != "" && textBoxPostanskiBroj.Text != "")
             {
                 u.PlatiRezervaciju(idRez);
                 this.Close();
