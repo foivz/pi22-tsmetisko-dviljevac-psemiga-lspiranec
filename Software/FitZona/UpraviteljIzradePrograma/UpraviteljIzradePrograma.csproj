@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20613E1E-F0F8-4C09-B49F-AD6584E2B371}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>FitZona</RootNamespace>
-    <AssemblyName>FitZona</AssemblyName>
+    <ProjectGuid>{ECD26877-AD13-4D27-8516-A4F66383F157}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UpraviteljIzradePrograma</RootNamespace>
+    <AssemblyName>UpraviteljIzradePrograma</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,10 +46,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -70,42 +65,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="FrmIzradaVlastitihPrograma.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmIzradaVlastitihPrograma.Designer.cs">
-      <DependentUpon>FrmIzradaVlastitihPrograma.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPlacanjeMjesecneClanarine.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPlacanjeMjesecneClanarine.Designer.cs">
-      <DependentUpon>FrmPlacanjeMjesecneClanarine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPlacanjeMjesecneClanarineOnline.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPlacanjeMjesecneClanarineOnline.Designer.cs">
-      <DependentUpon>FrmPlacanjeMjesecneClanarineOnline.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPlacanjeOnlineRezervacija.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPlacanjeOnlineRezervacija.Designer.cs">
-      <DependentUpon>FrmPlacanjeOnlineRezervacija.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPlacanjeRezerviranogProstora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPlacanjeRezerviranogProstora.Designer.cs">
-      <DependentUpon>FrmPlacanjeRezerviranogProstora.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRezervacijaSportskihProstora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRezervacijaSportskihProstora.Designer.cs">
-      <DependentUpon>FrmRezervacijaSportskihProstora.cs</DependentUpon>
-    </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
@@ -115,8 +74,6 @@
     <Compile Include="Paket.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="prostor_termin.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
@@ -135,75 +92,42 @@
     <Compile Include="Termin.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Upravljanje_podataka.cs" />
+    <Compile Include="UpraviteljIzrade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vlastiti_trening.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zaposlenik.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmIzradaVlastitihPrograma.resx">
-      <DependentUpon>FrmIzradaVlastitihPrograma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPlacanjeMjesecneClanarine.resx">
-      <DependentUpon>FrmPlacanjeMjesecneClanarine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPlacanjeMjesecneClanarineOnline.resx">
-      <DependentUpon>FrmPlacanjeMjesecneClanarineOnline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPlacanjeOnlineRezervacija.resx">
-      <DependentUpon>FrmPlacanjeOnlineRezervacija.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPlacanjeRezerviranogProstora.resx">
-      <DependentUpon>FrmPlacanjeRezerviranogProstora.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRezervacijaSportskihProstora.resx">
-      <DependentUpon>FrmRezervacijaSportskihProstora.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <EntityDeploy Include="FitZonaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FitZonaModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
     <None Include="FitZonaModel.edmx.diagram">
       <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FitZonaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FitZonaModel.edmx</DependentUpon>
       <LastGenOutput>FitZonaModel.Context.cs</LastGenOutput>
+      <DependentUpon>FitZonaModel.edmx</DependentUpon>
     </Content>
     <Content Include="FitZonaModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitZonaModel.edmx</DependentUpon>
       <LastGenOutput>FitZonaModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

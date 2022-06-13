@@ -38,5 +38,26 @@ namespace FitZona
                 MessageBox.Show("Članarina već plaćena");
             }
         }
+
+        private void buttonMeniRezervacijaSportskihProstora_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            u.OtvoriRezervacijuSportskihProstora();
+            this.Close();
+        }
+
+        private void buttonMeniPlacanjeProstora_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            u.OtvoriPlacanjeProstora();
+            this.Close();
+        }
+
+        private void buttonMeniPrijavaZaIzraduVlastitihPrograma_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            u.OtvoriPrijavuZaIzraduVlastitihPrograma();
+            this.Close();
+        }
     }
 }

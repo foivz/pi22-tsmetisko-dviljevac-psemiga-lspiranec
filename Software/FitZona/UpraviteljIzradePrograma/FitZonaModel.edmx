@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FitZonaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Grupa">
+          <Key>
+            <PropertyRef Name="grupa_id" />
+          </Key>
+          <Property Name="grupa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="100" />
+          <Property Name="zaposlenik_id" Type="int" />
+        </EntityType>
+        <EntityType Name="grupa-korisnik">
+          <Key>
+            <PropertyRef Name="grupa_id" />
+            <PropertyRef Name="korisnik_id" />
+          </Key>
+          <Property Name="grupa_id" Type="int" Nullable="false" />
+          <Property Name="korisnik_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="korisnik_id" />
+          </Key>
+          <Property Name="korisnik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="30" />
+          <Property Name="prezime" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="adresa_stanovanja" Type="varchar" MaxLength="100" />
+          <Property Name="broj_mobitela" Type="varchar" MaxLength="20" />
+          <Property Name="korisnicko_ime" Type="varchar" MaxLength="30" />
+          <Property Name="slika_profila" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="paket_id" Type="int" />
+        </EntityType>
+        <EntityType Name="korisnik-zaposlenik">
+          <Key>
+            <PropertyRef Name="zaposlenik_id" />
+            <PropertyRef Name="korisnik_id" />
+          </Key>
+          <Property Name="zaposlenik_id" Type="int" Nullable="false" />
+          <Property Name="korisnik_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paket">
+          <Key>
+            <PropertyRef Name="paket_id" />
+          </Key>
+          <Property Name="paket_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="50" />
+          <Property Name="cijena" Type="float" />
+        </EntityType>
+        <EntityType Name="prostor-termin">
+          <Key>
+            <PropertyRef Name="termin_id" />
+            <PropertyRef Name="sportski_prostor_id" />
+          </Key>
+          <Property Name="termin_id" Type="int" Nullable="false" />
+          <Property Name="sportski_prostor_id" Type="int" Nullable="false" />
+          <Property Name="slobodan" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="prostor-zaposlenik">
+          <Key>
+            <PropertyRef Name="zaposlenik_id" />
+            <PropertyRef Name="sportski_prostor_id" />
+          </Key>
+          <Property Name="zaposlenik_id" Type="int" Nullable="false" />
+          <Property Name="sportski_prostor_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rezervacija">
+          <Key>
+            <PropertyRef Name="rezervacija_id" />
+          </Key>
+          <Property Name="rezervacija_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datum" Type="date" />
+          <Property Name="vrijeme_od" Type="time" Precision="0" Nullable="false" />
+          <Property Name="duljina_rezervacija_sati" Type="int" />
+          <Property Name="plaćena" Type="tinyint" />
+          <Property Name="korisnik_id" Type="int" />
+          <Property Name="sportski_prostor_id" Type="int" />
+          <Property Name="zaposlenik_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Rezervacija_opreme">
+          <Key>
+            <PropertyRef Name="rezervacija_opreme_id" />
+          </Key>
+          <Property Name="rezervacija_opreme_id" Type="int" Nullable="false" />
+          <Property Name="korisnik_id" Type="int" />
+          <Property Name="sportska_oprema_id" Type="int" />
+          <Property Name="rezervacija_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Sportska_oprema">
+          <Key>
+            <PropertyRef Name="sportska_oprema_id" />
+          </Key>
+          <Property Name="sportska_oprema_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="100" />
+          <Property Name="cijena" Type="float" />
+          <Property Name="kolicina" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sportski_prostor">
+          <Key>
+            <PropertyRef Name="sportski_prostor_id" />
+          </Key>
+          <Property Name="sportski_prostor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="100" />
+          <Property Name="adresa" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Termin">
+          <Key>
+            <PropertyRef Name="termin_id" />
+          </Key>
+          <Property Name="termin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vrijeme_do" Type="time" Precision="0" />
+          <Property Name="vrijeme_od" Type="time" Precision="0" />
+        </EntityType>
+        <EntityType Name="Vlastiti_trening">
+          <Key>
+            <PropertyRef Name="vlastiti_trening_id" />
+          </Key>
+          <Property Name="vlastiti_trening_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="100" />
+          <Property Name="vrijeme" Type="datetime" />
+          <Property Name="korisnik_id" Type="int" />
+          <Property Name="sportski_prostor_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Zaposlenik">
+          <Key>
+            <PropertyRef Name="zaposlenik_id" />
+          </Key>
+          <Property Name="zaposlenik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ime" Type="varchar" MaxLength="30" />
+          <Property Name="prezime" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="adresa_stanovanja" Type="varchar" MaxLength="100" />
+          <Property Name="broj_mobitela" Type="varchar" MaxLength="20" />
+          <Property Name="korisnicko_ime" Type="varchar" MaxLength="30" />
+          <Property Name="slika_profila" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="radno_vrijeme" Type="varchar" MaxLength="50" />
+          <Property Name="uloga" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <Association Name="FK_Grupa_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_grupa-korisnik_Grupa">
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="1" />
+          <End Role="grupa-korisnik" Type="Self.grupa-korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupa">
+              <PropertyRef Name="grupa_id" />
+            </Principal>
+            <Dependent Role="grupa-korisnik">
+              <PropertyRef Name="grupa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_grupa-korisnik_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="grupa-korisnik" Type="Self.grupa-korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="grupa-korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Korisnik_Korisnik">
+          <End Role="Paket" Type="Self.Paket" Multiplicity="0..1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paket">
+              <PropertyRef Name="paket_id" />
+            </Principal>
+            <Dependent Role="Korisnik">
+              <PropertyRef Name="paket_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_korisnik-zaposlenik_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="korisnik-zaposlenik" Type="Self.korisnik-zaposlenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="korisnik-zaposlenik">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_korisnik-zaposlenik_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="1" />
+          <End Role="korisnik-zaposlenik" Type="Self.korisnik-zaposlenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Principal>
+            <Dependent Role="korisnik-zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prostor-termin_Sportski_prostor">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="1" />
+          <End Role="prostor-termin" Type="Self.prostor-termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="prostor-termin">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prostor-termin_Termin">
+          <End Role="Termin" Type="Self.Termin" Multiplicity="1" />
+          <End Role="prostor-termin" Type="Self.prostor-termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Termin">
+              <PropertyRef Name="termin_id" />
+            </Principal>
+            <Dependent Role="prostor-termin">
+              <PropertyRef Name="termin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prostor-zaposlenik_Sportski_prostor">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="1" />
+          <End Role="prostor-zaposlenik" Type="Self.prostor-zaposlenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="prostor-zaposlenik">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prostor-zaposlenik_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="1" />
+          <End Role="prostor-zaposlenik" Type="Self.prostor-zaposlenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Principal>
+            <Dependent Role="prostor-zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_opreme_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Rezervacija_opreme" Type="Self.Rezervacija_opreme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="Rezervacija_opreme">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_opreme_Rezervacija">
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="0..1" />
+          <End Role="Rezervacija_opreme" Type="Self.Rezervacija_opreme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezervacija">
+              <PropertyRef Name="rezervacija_id" />
+            </Principal>
+            <Dependent Role="Rezervacija_opreme">
+              <PropertyRef Name="rezervacija_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_opreme_Sportska_oprema">
+          <End Role="Sportska_oprema" Type="Self.Sportska_oprema" Multiplicity="0..1" />
+          <End Role="Rezervacija_opreme" Type="Self.Rezervacija_opreme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportska_oprema">
+              <PropertyRef Name="sportska_oprema_id" />
+            </Principal>
+            <Dependent Role="Rezervacija_opreme">
+              <PropertyRef Name="sportska_oprema_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Sportski_prostor">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="0..1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlastiti_trening_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Vlastiti_trening" Type="Self.Vlastiti_trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="Vlastiti_trening">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlastiti_trening_Vlastiti_trening">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="0..1" />
+          <End Role="Vlastiti_trening" Type="Self.Vlastiti_trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="Vlastiti_trening">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FitZonaModelStoreContainer">
+          <EntitySet Name="Grupa" EntityType="Self.Grupa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grupa-korisnik" EntityType="Self.grupa-korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="korisnik-zaposlenik" EntityType="Self.korisnik-zaposlenik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paket" EntityType="Self.Paket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prostor-termin" EntityType="Self.prostor-termin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prostor-zaposlenik" EntityType="Self.prostor-zaposlenik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezervacija" EntityType="Self.Rezervacija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezervacija_opreme" EntityType="Self.Rezervacija_opreme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sportska_oprema" EntityType="Self.Sportska_oprema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sportski_prostor" EntityType="Self.Sportski_prostor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Termin" EntityType="Self.Termin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vlastiti_trening" EntityType="Self.Vlastiti_trening" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaposlenik" EntityType="Self.Zaposlenik" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Grupa_Zaposlenik" Association="Self.FK_Grupa_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_grupa-korisnik_Grupa" Association="Self.FK_grupa-korisnik_Grupa">
+            <End Role="Grupa" EntitySet="Grupa" />
+            <End Role="grupa-korisnik" EntitySet="grupa-korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_grupa-korisnik_Korisnik" Association="Self.FK_grupa-korisnik_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="grupa-korisnik" EntitySet="grupa-korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Korisnik_Korisnik" Association="Self.FK_Korisnik_Korisnik">
+            <End Role="Paket" EntitySet="Paket" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_korisnik-zaposlenik_Korisnik" Association="Self.FK_korisnik-zaposlenik_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="korisnik-zaposlenik" EntitySet="korisnik-zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_korisnik-zaposlenik_Zaposlenik" Association="Self.FK_korisnik-zaposlenik_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="korisnik-zaposlenik" EntitySet="korisnik-zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prostor-termin_Sportski_prostor" Association="Self.FK_prostor-termin_Sportski_prostor">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="prostor-termin" EntitySet="prostor-termin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prostor-termin_Termin" Association="Self.FK_prostor-termin_Termin">
+            <End Role="Termin" EntitySet="Termin" />
+            <End Role="prostor-termin" EntitySet="prostor-termin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prostor-zaposlenik_Sportski_prostor" Association="Self.FK_prostor-zaposlenik_Sportski_prostor">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="prostor-zaposlenik" EntitySet="prostor-zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prostor-zaposlenik_Zaposlenik" Association="Self.FK_prostor-zaposlenik_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="prostor-zaposlenik" EntitySet="prostor-zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Korisnik" Association="Self.FK_Rezervacija_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_opreme_Korisnik" Association="Self.FK_Rezervacija_opreme_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Rezervacija_opreme" EntitySet="Rezervacija_opreme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_opreme_Rezervacija" Association="Self.FK_Rezervacija_opreme_Rezervacija">
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+            <End Role="Rezervacija_opreme" EntitySet="Rezervacija_opreme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_opreme_Sportska_oprema" Association="Self.FK_Rezervacija_opreme_Sportska_oprema">
+            <End Role="Sportska_oprema" EntitySet="Sportska_oprema" />
+            <End Role="Rezervacija_opreme" EntitySet="Rezervacija_opreme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Sportski_prostor" Association="Self.FK_Rezervacija_Sportski_prostor">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Zaposlenik" Association="Self.FK_Rezervacija_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlastiti_trening_Korisnik" Association="Self.FK_Vlastiti_trening_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Vlastiti_trening" EntitySet="Vlastiti_trening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlastiti_trening_Vlastiti_trening" Association="Self.FK_Vlastiti_trening_Vlastiti_trening">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="Vlastiti_trening" EntitySet="Vlastiti_trening" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FitZonaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Grupa">
+          <Key>
+            <PropertyRef Name="grupa_id" />
+          </Key>
+          <Property Name="grupa_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zaposlenik_id" Type="Int32" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.FK_Grupa_Zaposlenik" FromRole="Grupa" ToRole="Zaposlenik" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.grupa_korisnik" FromRole="Grupa" ToRole="Korisnik" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="korisnik_id" />
+          </Key>
+          <Property Name="korisnik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresa_stanovanja" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="broj_mobitela" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="korisnicko_ime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="slika_profila" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paket_id" Type="Int32" />
+          <NavigationProperty Name="Paket" Relationship="Self.FK_Korisnik_Korisnik" FromRole="Korisnik" ToRole="Paket" />
+          <NavigationProperty Name="Rezervacija" Relationship="Self.FK_Rezervacija_Korisnik" FromRole="Korisnik" ToRole="Rezervacija" />
+          <NavigationProperty Name="Rezervacija_opreme" Relationship="Self.FK_Rezervacija_opreme_Korisnik" FromRole="Korisnik" ToRole="Rezervacija_opreme" />
+          <NavigationProperty Name="Vlastiti_trening" Relationship="Self.FK_Vlastiti_trening_Korisnik" FromRole="Korisnik" ToRole="Vlastiti_trening" />
+          <NavigationProperty Name="Grupa" Relationship="Self.grupa_korisnik" FromRole="Korisnik" ToRole="Grupa" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.korisnik_zaposlenik" FromRole="Korisnik" ToRole="Zaposlenik" />
+        </EntityType>
+        <EntityType Name="Paket">
+          <Key>
+            <PropertyRef Name="paket_id" />
+          </Key>
+          <Property Name="paket_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cijena" Type="Double" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.FK_Korisnik_Korisnik" FromRole="Paket" ToRole="Korisnik" />
+        </EntityType>
+        <EntityType Name="prostor_termin">
+          <Key>
+            <PropertyRef Name="termin_id" />
+            <PropertyRef Name="sportski_prostor_id" />
+          </Key>
+          <Property Name="termin_id" Type="Int32" Nullable="false" />
+          <Property Name="sportski_prostor_id" Type="Int32" Nullable="false" />
+          <Property Name="slobodan" Type="Byte" />
+          <NavigationProperty Name="Sportski_prostor" Relationship="Self.FK_prostor_termin_Sportski_prostor" FromRole="prostor_termin" ToRole="Sportski_prostor" />
+          <NavigationProperty Name="Termin" Relationship="Self.FK_prostor_termin_Termin" FromRole="prostor_termin" ToRole="Termin" />
+        </EntityType>
+        <EntityType Name="Rezervacija">
+          <Key>
+            <PropertyRef Name="rezervacija_id" />
+          </Key>
+          <Property Name="rezervacija_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="vrijeme_od" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="duljina_rezervacija_sati" Type="Int32" />
+          <Property Name="plaćena" Type="Byte" />
+          <Property Name="korisnik_id" Type="Int32" />
+          <Property Name="sportski_prostor_id" Type="Int32" />
+          <Property Name="zaposlenik_id" Type="Int32" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.FK_Rezervacija_Korisnik" FromRole="Rezervacija" ToRole="Korisnik" />
+          <NavigationProperty Name="Rezervacija_opreme" Relationship="Self.FK_Rezervacija_opreme_Rezervacija" FromRole="Rezervacija" ToRole="Rezervacija_opreme" />
+          <NavigationProperty Name="Sportski_prostor" Relationship="Self.FK_Rezervacija_Sportski_prostor" FromRole="Rezervacija" ToRole="Sportski_prostor" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.FK_Rezervacija_Zaposlenik" FromRole="Rezervacija" ToRole="Zaposlenik" />
+        </EntityType>
+        <EntityType Name="Rezervacija_opreme">
+          <Key>
+            <PropertyRef Name="rezervacija_opreme_id" />
+          </Key>
+          <Property Name="rezervacija_opreme_id" Type="Int32" Nullable="false" />
+          <Property Name="korisnik_id" Type="Int32" />
+          <Property Name="sportska_oprema_id" Type="Int32" />
+          <Property Name="rezervacija_id" Type="Int32" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.FK_Rezervacija_opreme_Korisnik" FromRole="Rezervacija_opreme" ToRole="Korisnik" />
+          <NavigationProperty Name="Rezervacija" Relationship="Self.FK_Rezervacija_opreme_Rezervacija" FromRole="Rezervacija_opreme" ToRole="Rezervacija" />
+          <NavigationProperty Name="Sportska_oprema" Relationship="Self.FK_Rezervacija_opreme_Sportska_oprema" FromRole="Rezervacija_opreme" ToRole="Sportska_oprema" />
+        </EntityType>
+        <EntityType Name="Sportska_oprema">
+          <Key>
+            <PropertyRef Name="sportska_oprema_id" />
+          </Key>
+          <Property Name="sportska_oprema_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cijena" Type="Double" />
+          <Property Name="kolicina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rezervacija_opreme" Relationship="Self.FK_Rezervacija_opreme_Sportska_oprema" FromRole="Sportska_oprema" ToRole="Rezervacija_opreme" />
+        </EntityType>
+        <EntityType Name="Sportski_prostor">
+          <Key>
+            <PropertyRef Name="sportski_prostor_id" />
+          </Key>
+          <Property Name="sportski_prostor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="adresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="prostor_termin" Relationship="Self.FK_prostor_termin_Sportski_prostor" FromRole="Sportski_prostor" ToRole="prostor_termin" />
+          <NavigationProperty Name="Rezervacija" Relationship="Self.FK_Rezervacija_Sportski_prostor" FromRole="Sportski_prostor" ToRole="Rezervacija" />
+          <NavigationProperty Name="Vlastiti_trening" Relationship="Self.FK_Vlastiti_trening_Vlastiti_trening" FromRole="Sportski_prostor" ToRole="Vlastiti_trening" />
+          <NavigationProperty Name="Zaposlenik" Relationship="Self.prostor_zaposlenik" FromRole="Sportski_prostor" ToRole="Zaposlenik" />
+        </EntityType>
+        <EntityType Name="Termin">
+          <Key>
+            <PropertyRef Name="termin_id" />
+          </Key>
+          <Property Name="termin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vrijeme_do" Type="Time" Precision="0" />
+          <Property Name="vrijeme_od" Type="Time" Precision="0" />
+          <NavigationProperty Name="prostor_termin" Relationship="Self.FK_prostor_termin_Termin" FromRole="Termin" ToRole="prostor_termin" />
+        </EntityType>
+        <EntityType Name="Vlastiti_trening">
+          <Key>
+            <PropertyRef Name="vlastiti_trening_id" />
+          </Key>
+          <Property Name="vlastiti_trening_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vrijeme" Type="DateTime" Precision="3" />
+          <Property Name="korisnik_id" Type="Int32" />
+          <Property Name="sportski_prostor_id" Type="Int32" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.FK_Vlastiti_trening_Korisnik" FromRole="Vlastiti_trening" ToRole="Korisnik" />
+          <NavigationProperty Name="Sportski_prostor" Relationship="Self.FK_Vlastiti_trening_Vlastiti_trening" FromRole="Vlastiti_trening" ToRole="Sportski_prostor" />
+        </EntityType>
+        <EntityType Name="Zaposlenik">
+          <Key>
+            <PropertyRef Name="zaposlenik_id" />
+          </Key>
+          <Property Name="zaposlenik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresa_stanovanja" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="broj_mobitela" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="korisnicko_ime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="slika_profila" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="radno_vrijeme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uloga" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Grupa" Relationship="Self.FK_Grupa_Zaposlenik" FromRole="Zaposlenik" ToRole="Grupa" />
+          <NavigationProperty Name="Rezervacija" Relationship="Self.FK_Rezervacija_Zaposlenik" FromRole="Zaposlenik" ToRole="Rezervacija" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.korisnik_zaposlenik" FromRole="Zaposlenik" ToRole="Korisnik" />
+          <NavigationProperty Name="Sportski_prostor" Relationship="Self.prostor_zaposlenik" FromRole="Zaposlenik" ToRole="Sportski_prostor" />
+        </EntityType>
+        <Association Name="FK_Grupa_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Korisnik_Korisnik">
+          <End Role="Paket" Type="Self.Paket" Multiplicity="0..1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paket">
+              <PropertyRef Name="paket_id" />
+            </Principal>
+            <Dependent Role="Korisnik">
+              <PropertyRef Name="paket_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_opreme_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Rezervacija_opreme" Type="Self.Rezervacija_opreme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="Rezervacija_opreme">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlastiti_trening_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Vlastiti_trening" Type="Self.Vlastiti_trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="korisnik_id" />
+            </Principal>
+            <Dependent Role="Vlastiti_trening">
+              <PropertyRef Name="korisnik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prostor_termin_Sportski_prostor">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="1" />
+          <End Role="prostor_termin" Type="Self.prostor_termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="prostor_termin">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prostor_termin_Termin">
+          <End Role="Termin" Type="Self.Termin" Multiplicity="1" />
+          <End Role="prostor_termin" Type="Self.prostor_termin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Termin">
+              <PropertyRef Name="termin_id" />
+            </Principal>
+            <Dependent Role="prostor_termin">
+              <PropertyRef Name="termin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_opreme_Rezervacija">
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="0..1" />
+          <End Role="Rezervacija_opreme" Type="Self.Rezervacija_opreme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezervacija">
+              <PropertyRef Name="rezervacija_id" />
+            </Principal>
+            <Dependent Role="Rezervacija_opreme">
+              <PropertyRef Name="rezervacija_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Sportski_prostor">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="0..1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Zaposlenik">
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="0..1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenik">
+              <PropertyRef Name="zaposlenik_id" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="zaposlenik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_opreme_Sportska_oprema">
+          <End Role="Sportska_oprema" Type="Self.Sportska_oprema" Multiplicity="0..1" />
+          <End Role="Rezervacija_opreme" Type="Self.Rezervacija_opreme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportska_oprema">
+              <PropertyRef Name="sportska_oprema_id" />
+            </Principal>
+            <Dependent Role="Rezervacija_opreme">
+              <PropertyRef Name="sportska_oprema_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlastiti_trening_Vlastiti_trening">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="0..1" />
+          <End Role="Vlastiti_trening" Type="Self.Vlastiti_trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sportski_prostor">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Principal>
+            <Dependent Role="Vlastiti_trening">
+              <PropertyRef Name="sportski_prostor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="grupa_korisnik">
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+        </Association>
+        <Association Name="korisnik_zaposlenik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="*" />
+        </Association>
+        <Association Name="prostor_zaposlenik">
+          <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="*" />
+          <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="FitZonaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Grupa" EntityType="Self.Grupa" />
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" />
+          <EntitySet Name="Paket" EntityType="Self.Paket" />
+          <EntitySet Name="prostor_termin" EntityType="Self.prostor_termin" />
+          <EntitySet Name="Rezervacija" EntityType="Self.Rezervacija" />
+          <EntitySet Name="Rezervacija_opreme" EntityType="Self.Rezervacija_opreme" />
+          <EntitySet Name="Sportska_oprema" EntityType="Self.Sportska_oprema" />
+          <EntitySet Name="Sportski_prostor" EntityType="Self.Sportski_prostor" />
+          <EntitySet Name="Termin" EntityType="Self.Termin" />
+          <EntitySet Name="Vlastiti_trening" EntityType="Self.Vlastiti_trening" />
+          <EntitySet Name="Zaposlenik" EntityType="Self.Zaposlenik" />
+          <AssociationSet Name="FK_Grupa_Zaposlenik" Association="Self.FK_Grupa_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Korisnik_Korisnik" Association="Self.FK_Korisnik_Korisnik">
+            <End Role="Paket" EntitySet="Paket" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Korisnik" Association="Self.FK_Rezervacija_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_opreme_Korisnik" Association="Self.FK_Rezervacija_opreme_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Rezervacija_opreme" EntitySet="Rezervacija_opreme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlastiti_trening_Korisnik" Association="Self.FK_Vlastiti_trening_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Vlastiti_trening" EntitySet="Vlastiti_trening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prostor_termin_Sportski_prostor" Association="Self.FK_prostor_termin_Sportski_prostor">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="prostor_termin" EntitySet="prostor_termin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prostor_termin_Termin" Association="Self.FK_prostor_termin_Termin">
+            <End Role="Termin" EntitySet="Termin" />
+            <End Role="prostor_termin" EntitySet="prostor_termin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_opreme_Rezervacija" Association="Self.FK_Rezervacija_opreme_Rezervacija">
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+            <End Role="Rezervacija_opreme" EntitySet="Rezervacija_opreme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Sportski_prostor" Association="Self.FK_Rezervacija_Sportski_prostor">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Zaposlenik" Association="Self.FK_Rezervacija_Zaposlenik">
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_opreme_Sportska_oprema" Association="Self.FK_Rezervacija_opreme_Sportska_oprema">
+            <End Role="Sportska_oprema" EntitySet="Sportska_oprema" />
+            <End Role="Rezervacija_opreme" EntitySet="Rezervacija_opreme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlastiti_trening_Vlastiti_trening" Association="Self.FK_Vlastiti_trening_Vlastiti_trening">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="Vlastiti_trening" EntitySet="Vlastiti_trening" />
+          </AssociationSet>
+          <AssociationSet Name="grupa_korisnik" Association="Self.grupa_korisnik">
+            <End Role="Grupa" EntitySet="Grupa" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="korisnik_zaposlenik" Association="Self.korisnik_zaposlenik">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+          </AssociationSet>
+          <AssociationSet Name="prostor_zaposlenik" Association="Self.prostor_zaposlenik">
+            <End Role="Sportski_prostor" EntitySet="Sportski_prostor" />
+            <End Role="Zaposlenik" EntitySet="Zaposlenik" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FitZonaModelStoreContainer" CdmEntityContainer="FitZonaEntities">
+          <EntitySetMapping Name="Grupa">
+            <EntityTypeMapping TypeName="FitZonaModel.Grupa">
+              <MappingFragment StoreEntitySet="Grupa">
+                <ScalarProperty Name="grupa_id" ColumnName="grupa_id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korisnik">
+            <EntityTypeMapping TypeName="FitZonaModel.Korisnik">
+              <MappingFragment StoreEntitySet="Korisnik">
+                <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adresa_stanovanja" ColumnName="adresa_stanovanja" />
+                <ScalarProperty Name="broj_mobitela" ColumnName="broj_mobitela" />
+                <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
+                <ScalarProperty Name="slika_profila" ColumnName="slika_profila" />
+                <ScalarProperty Name="paket_id" ColumnName="paket_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paket">
+            <EntityTypeMapping TypeName="FitZonaModel.Paket">
+              <MappingFragment StoreEntitySet="Paket">
+                <ScalarProperty Name="paket_id" ColumnName="paket_id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="cijena" ColumnName="cijena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prostor_termin">
+            <EntityTypeMapping TypeName="FitZonaModel.prostor_termin">
+              <MappingFragment StoreEntitySet="prostor-termin">
+                <ScalarProperty Name="termin_id" ColumnName="termin_id" />
+                <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
+                <ScalarProperty Name="slobodan" ColumnName="slobodan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezervacija">
+            <EntityTypeMapping TypeName="FitZonaModel.Rezervacija">
+              <MappingFragment StoreEntitySet="Rezervacija">
+                <ScalarProperty Name="rezervacija_id" ColumnName="rezervacija_id" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="vrijeme_od" ColumnName="vrijeme_od" />
+                <ScalarProperty Name="duljina_rezervacija_sati" ColumnName="duljina_rezervacija_sati" />
+                <ScalarProperty Name="plaćena" ColumnName="plaćena" />
+                <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
+                <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
+                <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezervacija_opreme">
+            <EntityTypeMapping TypeName="FitZonaModel.Rezervacija_opreme">
+              <MappingFragment StoreEntitySet="Rezervacija_opreme">
+                <ScalarProperty Name="rezervacija_opreme_id" ColumnName="rezervacija_opreme_id" />
+                <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
+                <ScalarProperty Name="sportska_oprema_id" ColumnName="sportska_oprema_id" />
+                <ScalarProperty Name="rezervacija_id" ColumnName="rezervacija_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sportska_oprema">
+            <EntityTypeMapping TypeName="FitZonaModel.Sportska_oprema">
+              <MappingFragment StoreEntitySet="Sportska_oprema">
+                <ScalarProperty Name="sportska_oprema_id" ColumnName="sportska_oprema_id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="cijena" ColumnName="cijena" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sportski_prostor">
+            <EntityTypeMapping TypeName="FitZonaModel.Sportski_prostor">
+              <MappingFragment StoreEntitySet="Sportski_prostor">
+                <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="adresa" ColumnName="adresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Termin">
+            <EntityTypeMapping TypeName="FitZonaModel.Termin">
+              <MappingFragment StoreEntitySet="Termin">
+                <ScalarProperty Name="termin_id" ColumnName="termin_id" />
+                <ScalarProperty Name="vrijeme_do" ColumnName="vrijeme_do" />
+                <ScalarProperty Name="vrijeme_od" ColumnName="vrijeme_od" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vlastiti_trening">
+            <EntityTypeMapping TypeName="FitZonaModel.Vlastiti_trening">
+              <MappingFragment StoreEntitySet="Vlastiti_trening">
+                <ScalarProperty Name="vlastiti_trening_id" ColumnName="vlastiti_trening_id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="vrijeme" ColumnName="vrijeme" />
+                <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
+                <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zaposlenik">
+            <EntityTypeMapping TypeName="FitZonaModel.Zaposlenik">
+              <MappingFragment StoreEntitySet="Zaposlenik">
+                <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adresa_stanovanja" ColumnName="adresa_stanovanja" />
+                <ScalarProperty Name="broj_mobitela" ColumnName="broj_mobitela" />
+                <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
+                <ScalarProperty Name="slika_profila" ColumnName="slika_profila" />
+                <ScalarProperty Name="radno_vrijeme" ColumnName="radno_vrijeme" />
+                <ScalarProperty Name="uloga" ColumnName="uloga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="grupa_korisnik" TypeName="FitZonaModel.grupa_korisnik" StoreEntitySet="grupa-korisnik">
+            <EndProperty Name="Grupa">
+              <ScalarProperty Name="grupa_id" ColumnName="grupa_id" />
+            </EndProperty>
+            <EndProperty Name="Korisnik">
+              <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="korisnik_zaposlenik" TypeName="FitZonaModel.korisnik_zaposlenik" StoreEntitySet="korisnik-zaposlenik">
+            <EndProperty Name="Korisnik">
+              <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
+            </EndProperty>
+            <EndProperty Name="Zaposlenik">
+              <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="prostor_zaposlenik" TypeName="FitZonaModel.prostor_zaposlenik" StoreEntitySet="prostor-zaposlenik">
+            <EndProperty Name="Sportski_prostor">
+              <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
+            </EndProperty>
+            <EndProperty Name="Zaposlenik">
+              <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
