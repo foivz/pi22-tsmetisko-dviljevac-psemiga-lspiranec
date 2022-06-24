@@ -36,10 +36,19 @@ namespace FitZona
         private void buttonIzradiProgram_Click(object sender, EventArgs e)
         {
             string sportskiProstor = dataGridViewSlobodniProstoriZaIzradu.CurrentRow.Cells[0].Value.ToString();
-            string vrijemeIzradeOd = dataGridViewSlobodniProstoriZaIzradu.CurrentRow.Cells[3].Value.ToString();
-            TimeSpan vrijemeOd = u.IzradiProgram(sportskiProstor, vrijemeIzradeOd, textBoxImePrograma.Text, textBoxHardCodeIDKorisnika.Text);
+            string vrijemeIzradeOd = dataGridViewSlobodniProstoriZaIzradu.CurrentRow.Cells[2].Value.ToString();
             int? duljina = int.Parse(textBoxDuljinaRezervacije.Text);
-            //u.AzurirajTermine(vrijemeOd, duljina);
+            if (u.ProvjeriTermineSDuljinom(duljina, TimeSpan.Parse(vrijemeIzradeOd)))
+            {
+                TimeSpan vrijemeOd = u.IzradiProgram(sportskiProstor, vrijemeIzradeOd, textBoxImePrograma.Text, textBoxHardCodeIDKorisnika.Text);
+                u.AzurirajTermine(vrijemeOd, duljina, int.Parse(dataGridViewSlobodniProstoriZaIzradu.CurrentRow.Cells[0].Value.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("Nije moguće rezervirati toliko sati od odabranog termina za izradu programa");
+            }
+            
+
             Osvjezi();
         }
 
