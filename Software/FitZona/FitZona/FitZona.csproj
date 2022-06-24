@@ -126,6 +126,7 @@
     <Compile Include="Rezervacija_opreme.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SlobodniProstori.cs" />
     <Compile Include="Sportska_oprema.cs">
       <DependentUpon>FitZonaModel.tt</DependentUpon>
     </Compile>
@@ -204,6 +205,12 @@
       <DependentUpon>FitZonaModel.edmx</DependentUpon>
       <LastGenOutput>FitZonaModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Upravljanje_provjera_podataka\Upravljanje_provjera_podataka.csproj">
+      <Project>{0b9d9fde-bc5b-4a92-be6d-b2fbdebc71c7}</Project>
+      <Name>Upravljanje_provjera_podataka</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

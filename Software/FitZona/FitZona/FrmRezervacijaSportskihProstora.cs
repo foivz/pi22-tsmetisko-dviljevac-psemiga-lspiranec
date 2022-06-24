@@ -21,6 +21,8 @@ namespace FitZona
 
         private void FrmRezervacijaSportskihProstora_Load(object sender, EventArgs e)
         {
+
+            comboBoxFilter.DataSource = u.DohvatiSportskeProstore();
             Osvjezi();
             buttonMeniRezervacijaSportskihProstora.Enabled = false;
         }
@@ -35,16 +37,23 @@ namespace FitZona
             Rezervacija nova = new Rezervacija()
             {
                 datum = DateTime.Parse(DateTime.Now.ToShortDateString()),
-                vrijeme_od = TimeSpan.Parse(dataGridViewSlobodniProstori.CurrentRow.Cells[3].Value.ToString()),
+                vrijeme_od = TimeSpan.Parse(dataGridViewSlobodniProstori.CurrentRow.Cells[2].Value.ToString()),
                 duljina_rezervacija_sati = int.Parse(textBoxDuljinaRezervacije.Text),
                 plaćena = 0,
                 korisnik_id = int.Parse(textBoxHardCodeIDKorisnika.Text),
                 sportski_prostor_id = int.Parse(dataGridViewSlobodniProstori.CurrentRow.Cells[0].Value.ToString()),
                 zaposlenik_id = null
             };
-
-            u.UpisiRezervaciju(nova);
-            u.AzurirajTermine(nova.vrijeme_od, nova.duljina_rezervacija_sati);
+            if (u.ProvjeriTermineSDuljinom(nova.duljina_rezervacija_sati, nova.vrijeme_od))
+            {
+                u.UpisiRezervaciju(nova);
+                u.AzurirajTermine(nova.vrijeme_od, nova.duljina_rezervacija_sati, nova.sportski_prostor_id);
+            }
+            else
+            {
+                MessageBox.Show("Nije moguće rezervirati toliko sati od odabranog termina");
+            }
+            
             Osvjezi();
         }
 
@@ -72,6 +81,17 @@ namespace FitZona
             this.Hide();
             u.OtvoriPrijavuZaIzraduVlastitihPrograma();
             this.Close();
+        }
+
+        private void comboBoxFilter_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string ime = comboBoxFilter.Text;
+            dataGridViewSlobodniProstori.DataSource = u.DohvatiFiltriraneSlobodneProstore(ime);
+        }
+
+        private void buttonPrikaziSve_Click(object sender, EventArgs e)
+        {
+            Osvjezi();
         }
     }
 }
