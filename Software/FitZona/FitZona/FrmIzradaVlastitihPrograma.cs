@@ -39,7 +39,7 @@ namespace FitZona
             string vrijemeIzradeOd = dataGridViewSlobodniProstoriZaIzradu.CurrentRow.Cells[3].Value.ToString();
             TimeSpan vrijemeOd = u.IzradiProgram(sportskiProstor, vrijemeIzradeOd, textBoxImePrograma.Text, textBoxHardCodeIDKorisnika.Text);
             int? duljina = int.Parse(textBoxDuljinaRezervacije.Text);
-            u.AzurirajTermine(vrijemeOd, duljina);
+            //u.AzurirajTermine(vrijemeOd, duljina);
             Osvjezi();
         }
 

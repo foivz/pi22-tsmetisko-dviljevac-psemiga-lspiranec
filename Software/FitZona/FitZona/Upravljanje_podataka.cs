@@ -8,7 +8,7 @@ namespace FitZona
 {
     public class Upravljanje_podataka
     {
-        public object DohvatiSlobodneProstore()
+        public List<SlobodniProstori> DohvatiSlobodneProstore()
         {
             using (var ctx = new FitZona_Entitiess())
             {
@@ -16,15 +16,27 @@ namespace FitZona
                             from s in ctx.Sportski_prostor
                             from t in ctx.Termin
                             where s.sportski_prostor_id == pt.sportski_prostor_id && t.termin_id == pt.termin_id && pt.slobodan == 1
-                            select new
+                            orderby s.sportski_prostor_id
+                            select new SlobodniProstori
                             {
-                                s.sportski_prostor_id,
-                                s.ime,
-                                t.vrijeme_do,
-                                t.vrijeme_od
+                                Sportski_prostor_id = s.sportski_prostor_id,
+                                Sportski_prostor = s.ime,
+                                Vrijeme_početka = t.vrijeme_od,
+                                Vrijeme_završetka = t.vrijeme_do
                             };
 
                 return query.ToList();
+            }
+        }
+
+        internal object DohvatiSportskeProstore()
+        {
+            using (var ctx = new FitZona_Entitiess())
+            {
+                var query = from s in ctx.Sportski_prostor
+                            select s.ime;
+
+                return query.Distinct().ToList();
             }
         }
 
@@ -41,6 +53,31 @@ namespace FitZona
                 cijena = paketCijena.ToString();
                 return cijena;
             }
+        }
+
+        public bool ProvjeriTermineSDuljinom(int? duljinaRezervacije, TimeSpan vrijemeOd)
+        {
+            bool provjera = true;
+            List<SlobodniProstori> SlobodniProstori = DohvatiSlobodneProstore();
+
+            int index = SlobodniProstori.FindIndex(x => x.Vrijeme_početka == vrijemeOd);
+
+            TimeSpan? vrijemeZavrsetkaProvjeraPrvi = null;
+            TimeSpan? vrijemePocetkaProvjeraDrugi = null;
+            
+            for (int i = index; i <= index+duljinaRezervacije-2; i++)
+            {
+                vrijemeZavrsetkaProvjeraPrvi = SlobodniProstori[i].Vrijeme_završetka;
+                vrijemePocetkaProvjeraDrugi = SlobodniProstori[i+1].Vrijeme_početka;
+
+                if (vrijemeZavrsetkaProvjeraPrvi != vrijemePocetkaProvjeraDrugi)
+                {
+                    provjera = false;
+                }
+                
+            }
+
+            return provjera;
         }
 
         internal TimeSpan IzradiProgram(string sportskiProstor, string vrijemeIzradeOd, string ime, string idKorisnika)
@@ -65,6 +102,27 @@ namespace FitZona
             }
             return vrijemeOdDohvaceno;
             
+        }
+
+        internal object DohvatiFiltriraneSlobodneProstore(string ime)
+        {
+            using (var ctx = new FitZona_Entitiess())
+            {
+                var query = from pt in ctx.prostor_termin
+                            from s in ctx.Sportski_prostor
+                            from t in ctx.Termin
+                            where s.sportski_prostor_id == pt.sportski_prostor_id && t.termin_id == pt.termin_id && pt.slobodan == 1 && s.ime == ime
+                            orderby s.sportski_prostor_id
+                            select new SlobodniProstori
+                            {
+                                Sportski_prostor_id = s.sportski_prostor_id,
+                                Sportski_prostor = s.ime,
+                                Vrijeme_početka = t.vrijeme_od,
+                                Vrijeme_završetka = t.vrijeme_do
+                            };
+
+                return query.ToList();
+            }
         }
 
         public string DohvatiPopust(int idKorisnika)
@@ -143,7 +201,7 @@ namespace FitZona
             }
         }
 
-        public void AzurirajTermine(TimeSpan vrijeme_od, int? duljina_rezervacija_sati)
+        public void AzurirajTermine(TimeSpan vrijeme_od, int? duljina_rezervacija_sati, int? sportskiProstorID)
         {
             using (var ctx = new FitZona_Entitiess())
             {
@@ -154,7 +212,7 @@ namespace FitZona
                 for (int i = 0; i < duljina_rezervacija_sati; i++)
                 {
                     var query1 = from pt in ctx.prostor_termin
-                                where pt.termin_id == terminID+i
+                                where pt.termin_id == terminID+i && pt.sportski_prostor_id == sportskiProstorID
                                 select pt;
                     prostor_termin ptDohvaceni = query1.FirstOrDefault();
                     ptDohvaceni.slobodan = 0;
