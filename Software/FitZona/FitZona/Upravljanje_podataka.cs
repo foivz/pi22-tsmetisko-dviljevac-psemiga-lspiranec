@@ -135,7 +135,7 @@ namespace FitZona
                             where k.korisnik_id == idKorisnika
                             select k.paket_id;
                 int? paketID = query.FirstOrDefault();
-
+                //TODO implentiraj bazu da mos dohvatit popust iz tablice paketa
                 if (paketID == 1)
                 {
                     popust = "10";
@@ -165,12 +165,12 @@ namespace FitZona
                             where s.sportski_prostor_id == r.sportski_prostor_id && r.korisnik_id == idKor
                             select new
                             {
-                                r.rezervacija_id,
-                                s.ime,
-                                r.datum,
-                                r.vrijeme_od,
-                                r.duljina_rezervacija_sati,
-                                r.plaćena
+                                Rezervacija_ID = r.rezervacija_id,
+                                Sportski_prostor = s.ime,
+                                Datum_rezervacije = r.datum,
+                                Vrijeme_rezervacije_od = r.vrijeme_od,
+                                Duljina_rezervacije_u_satima =r.duljina_rezervacija_sati,
+                                Plaćena = r.plaćena
                             };
 
                 return query.ToList();
