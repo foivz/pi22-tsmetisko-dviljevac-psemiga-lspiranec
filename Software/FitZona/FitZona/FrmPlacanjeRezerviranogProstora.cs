@@ -65,5 +65,10 @@ namespace FitZona
             u.OtvoriPrijavuZaIzraduVlastitihPrograma();
             this.Close();
         }
+
+        private void buttonPDF_Click(object sender, EventArgs e)
+        {
+            u.GenerirajPDF(dataGridViewRezervacija);
+        }
     }
 }
