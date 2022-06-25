@@ -13,10 +13,10 @@ namespace FitZona
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FitZona_Entitiess : DbContext
+    public partial class FitZonaa_Entities : DbContext
     {
-        public FitZona_Entitiess()
-            : base("name=FitZona_Entitiess")
+        public FitZonaa_Entities()
+            : base("name=FitZonaa_Entities")
         {
         }
     

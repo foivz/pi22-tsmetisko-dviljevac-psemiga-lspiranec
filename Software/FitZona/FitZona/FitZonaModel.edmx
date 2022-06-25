@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FitZona_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FitZonaa_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Grupa">
           <Key>
             <PropertyRef Name="grupa_id" />
@@ -50,6 +50,7 @@
           <Property Name="paket_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="naziv" Type="varchar" MaxLength="50" />
           <Property Name="cijena" Type="float" />
+          <Property Name="popust" Type="int" />
         </EntityType>
         <EntityType Name="prostor-termin">
           <Key>
@@ -73,7 +74,7 @@
             <PropertyRef Name="rezervacija_id" />
           </Key>
           <Property Name="rezervacija_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="datum" Type="date" />
+          <Property Name="datum" Type="datetime" />
           <Property Name="vrijeme_od" Type="time" Precision="0" Nullable="false" />
           <Property Name="duljina_rezervacija_sati" Type="int" />
           <Property Name="plaćena" Type="tinyint" />
@@ -356,7 +357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FitZona_ModelStoreContainer">
+        <EntityContainer Name="FitZonaa_ModelStoreContainer">
           <EntitySet Name="Grupa" EntityType="Self.Grupa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="grupa-korisnik" EntityType="Self.grupa-korisnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
@@ -448,7 +449,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="FitZona_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="FitZonaa_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Grupa">
           <Key>
             <PropertyRef Name="grupa_id" />
@@ -486,6 +487,7 @@
           <Property Name="paket_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cijena" Type="Double" />
+          <Property Name="popust" Type="Int32" />
           <NavigationProperty Name="Korisnik" Relationship="Self.FK_Korisnik_Korisnik" FromRole="Paket" ToRole="Korisnik" />
         </EntityType>
         <EntityType Name="prostor_termin">
@@ -504,7 +506,7 @@
             <PropertyRef Name="rezervacija_id" />
           </Key>
           <Property Name="rezervacija_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="datum" Type="DateTime" Precision="3" />
           <Property Name="vrijeme_od" Type="Time" Nullable="false" Precision="0" />
           <Property Name="duljina_rezervacija_sati" Type="Int32" />
           <Property Name="plaćena" Type="Byte" />
@@ -746,7 +748,7 @@
           <End Role="Sportski_prostor" Type="Self.Sportski_prostor" Multiplicity="*" />
           <End Role="Zaposlenik" Type="Self.Zaposlenik" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="FitZona_Entitiess" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FitZonaa_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Grupa" EntityType="Self.Grupa" />
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" />
           <EntitySet Name="Paket" EntityType="Self.Paket" />
@@ -824,9 +826,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FitZona_ModelStoreContainer" CdmEntityContainer="FitZona_Entitiess">
+        <EntityContainerMapping StorageEntityContainer="FitZonaa_ModelStoreContainer" CdmEntityContainer="FitZonaa_Entities">
           <EntitySetMapping Name="Grupa">
-            <EntityTypeMapping TypeName="FitZona_Model.Grupa">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Grupa">
               <MappingFragment StoreEntitySet="Grupa">
                 <ScalarProperty Name="grupa_id" ColumnName="grupa_id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -835,7 +837,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Korisnik">
-            <EntityTypeMapping TypeName="FitZona_Model.Korisnik">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Korisnik">
               <MappingFragment StoreEntitySet="Korisnik">
                 <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -850,16 +852,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Paket">
-            <EntityTypeMapping TypeName="FitZona_Model.Paket">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Paket">
               <MappingFragment StoreEntitySet="Paket">
                 <ScalarProperty Name="paket_id" ColumnName="paket_id" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
                 <ScalarProperty Name="cijena" ColumnName="cijena" />
+                <ScalarProperty Name="popust" ColumnName="popust" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="prostor_termin">
-            <EntityTypeMapping TypeName="FitZona_Model.prostor_termin">
+            <EntityTypeMapping TypeName="FitZonaa_Model.prostor_termin">
               <MappingFragment StoreEntitySet="prostor-termin">
                 <ScalarProperty Name="termin_id" ColumnName="termin_id" />
                 <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
@@ -868,7 +871,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rezervacija">
-            <EntityTypeMapping TypeName="FitZona_Model.Rezervacija">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Rezervacija">
               <MappingFragment StoreEntitySet="Rezervacija">
                 <ScalarProperty Name="rezervacija_id" ColumnName="rezervacija_id" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
@@ -882,7 +885,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rezervacija_opreme">
-            <EntityTypeMapping TypeName="FitZona_Model.Rezervacija_opreme">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Rezervacija_opreme">
               <MappingFragment StoreEntitySet="Rezervacija_opreme">
                 <ScalarProperty Name="rezervacija_opreme_id" ColumnName="rezervacija_opreme_id" />
                 <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
@@ -892,7 +895,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sportska_oprema">
-            <EntityTypeMapping TypeName="FitZona_Model.Sportska_oprema">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Sportska_oprema">
               <MappingFragment StoreEntitySet="Sportska_oprema">
                 <ScalarProperty Name="sportska_oprema_id" ColumnName="sportska_oprema_id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -902,7 +905,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sportski_prostor">
-            <EntityTypeMapping TypeName="FitZona_Model.Sportski_prostor">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Sportski_prostor">
               <MappingFragment StoreEntitySet="Sportski_prostor">
                 <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -911,7 +914,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Termin">
-            <EntityTypeMapping TypeName="FitZona_Model.Termin">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Termin">
               <MappingFragment StoreEntitySet="Termin">
                 <ScalarProperty Name="termin_id" ColumnName="termin_id" />
                 <ScalarProperty Name="vrijeme_do" ColumnName="vrijeme_do" />
@@ -920,7 +923,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vlastiti_trening">
-            <EntityTypeMapping TypeName="FitZona_Model.Vlastiti_trening">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Vlastiti_trening">
               <MappingFragment StoreEntitySet="Vlastiti_trening">
                 <ScalarProperty Name="vlastiti_trening_id" ColumnName="vlastiti_trening_id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -931,7 +934,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zaposlenik">
-            <EntityTypeMapping TypeName="FitZona_Model.Zaposlenik">
+            <EntityTypeMapping TypeName="FitZonaa_Model.Zaposlenik">
               <MappingFragment StoreEntitySet="Zaposlenik">
                 <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
                 <ScalarProperty Name="ime" ColumnName="ime" />
@@ -946,7 +949,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="grupa_korisnik" TypeName="FitZona_Model.grupa_korisnik" StoreEntitySet="grupa-korisnik">
+          <AssociationSetMapping Name="grupa_korisnik" TypeName="FitZonaa_Model.grupa_korisnik" StoreEntitySet="grupa-korisnik">
             <EndProperty Name="Grupa">
               <ScalarProperty Name="grupa_id" ColumnName="grupa_id" />
             </EndProperty>
@@ -954,7 +957,7 @@
               <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="korisnik_zaposlenik" TypeName="FitZona_Model.korisnik_zaposlenik" StoreEntitySet="korisnik-zaposlenik">
+          <AssociationSetMapping Name="korisnik_zaposlenik" TypeName="FitZonaa_Model.korisnik_zaposlenik" StoreEntitySet="korisnik-zaposlenik">
             <EndProperty Name="Korisnik">
               <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
             </EndProperty>
@@ -962,7 +965,7 @@
               <ScalarProperty Name="zaposlenik_id" ColumnName="zaposlenik_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="prostor_zaposlenik" TypeName="FitZona_Model.prostor_zaposlenik" StoreEntitySet="prostor-zaposlenik">
+          <AssociationSetMapping Name="prostor_zaposlenik" TypeName="FitZonaa_Model.prostor_zaposlenik" StoreEntitySet="prostor-zaposlenik">
             <EndProperty Name="Sportski_prostor">
               <ScalarProperty Name="sportski_prostor_id" ColumnName="sportski_prostor_id" />
             </EndProperty>

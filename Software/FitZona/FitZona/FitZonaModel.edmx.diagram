@@ -4,33 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81245bd1d5d747cea753d37ddb63a0e1" Name="Diagram1">
-        <EntityTypeShape EntityType="FitZona_Model.Grupa" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Korisnik" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Paket" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.prostor_termin" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Rezervacija" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Rezervacija_opreme" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Sportska_oprema" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Sportski_prostor" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Termin" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Vlastiti_trening" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitZona_Model.Zaposlenik" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
-        <AssociationConnector Association="FitZona_Model.FK_Grupa_Zaposlenik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Korisnik_Korisnik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Rezervacija_Korisnik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Rezervacija_opreme_Korisnik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Vlastiti_trening_Korisnik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_prostor_termin_Sportski_prostor" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_prostor_termin_Termin" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Rezervacija_opreme_Rezervacija" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Rezervacija_Sportski_prostor" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Rezervacija_Zaposlenik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Rezervacija_opreme_Sportska_oprema" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.FK_Vlastiti_trening_Vlastiti_trening" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.grupa_korisnik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.korisnik_zaposlenik" ManuallyRouted="false" />
-        <AssociationConnector Association="FitZona_Model.prostor_zaposlenik" ManuallyRouted="false" />
+      <Diagram DiagramId="935f3d117b05471994d9e210f7008a74" Name="Diagram1">
+        <EntityTypeShape EntityType="FitZonaa_Model.Grupa" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Korisnik" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Paket" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.prostor_termin" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Rezervacija" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Rezervacija_opreme" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Sportska_oprema" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Sportski_prostor" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Termin" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Vlastiti_trening" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitZonaa_Model.Zaposlenik" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Grupa_Zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Korisnik_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Rezervacija_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Rezervacija_opreme_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Vlastiti_trening_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_prostor_termin_Sportski_prostor" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_prostor_termin_Termin" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Rezervacija_opreme_Rezervacija" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Rezervacija_Sportski_prostor" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Rezervacija_Zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Rezervacija_opreme_Sportska_oprema" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.FK_Vlastiti_trening_Vlastiti_trening" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.grupa_korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.korisnik_zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="FitZonaa_Model.prostor_zaposlenik" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
