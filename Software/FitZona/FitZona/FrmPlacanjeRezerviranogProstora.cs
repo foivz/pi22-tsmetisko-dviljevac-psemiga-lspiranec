@@ -23,6 +23,7 @@ namespace FitZona
         {
             Osvjezi();
             buttonMeniPlacanjeProstora.Enabled = false;
+            dataGridViewRezervacija.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void Osvjezi()
         {
