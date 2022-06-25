@@ -26,6 +26,7 @@ namespace FitZona
         private void FrmIzradaVlastitihPrograma_Load(object sender, EventArgs e)
         {
             Osvjezi();
+            dataGridViewSlobodniProstoriZaIzradu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void Osvjezi()
