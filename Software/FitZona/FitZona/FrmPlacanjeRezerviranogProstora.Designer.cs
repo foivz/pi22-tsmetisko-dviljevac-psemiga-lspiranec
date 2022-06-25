@@ -59,6 +59,7 @@ namespace FitZona
             this.labelPopisRezervacija = new System.Windows.Forms.Label();
             this.dataGridViewRezervacija = new System.Windows.Forms.DataGridView();
             this.buttonPlatiRezervaciju = new System.Windows.Forms.Button();
+            this.buttonPDF = new System.Windows.Forms.Button();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
@@ -417,12 +418,30 @@ namespace FitZona
             this.buttonPlatiRezervaciju.UseVisualStyleBackColor = false;
             this.buttonPlatiRezervaciju.Click += new System.EventHandler(this.buttonPlatiRezervaciju_Click);
             // 
+            // buttonPDF
+            // 
+            this.buttonPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(46)))));
+            this.buttonPDF.FlatAppearance.BorderSize = 0;
+            this.buttonPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
+            this.buttonPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
+            this.buttonPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPDF.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonPDF.Location = new System.Drawing.Point(887, 502);
+            this.buttonPDF.Name = "buttonPDF";
+            this.buttonPDF.Size = new System.Drawing.Size(200, 46);
+            this.buttonPDF.TabIndex = 6;
+            this.buttonPDF.Text = "Generiraj PDF";
+            this.buttonPDF.UseVisualStyleBackColor = false;
+            this.buttonPDF.Click += new System.EventHandler(this.buttonPDF_Click);
+            // 
             // FrmPlacanjeRezerviranogProstora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(56)))), ((int)(((byte)(140)))));
             this.ClientSize = new System.Drawing.Size(1293, 560);
+            this.Controls.Add(this.buttonPDF);
             this.Controls.Add(this.buttonPlatiRezervaciju);
             this.Controls.Add(this.labelPopisRezervacija);
             this.Controls.Add(this.dataGridViewRezervacija);
@@ -474,5 +493,6 @@ namespace FitZona
         private System.Windows.Forms.Label labelPopisRezervacija;
         private System.Windows.Forms.DataGridView dataGridViewRezervacija;
         private System.Windows.Forms.Button buttonPlatiRezervaciju;
+        private System.Windows.Forms.Button buttonPDF;
     }
 }
