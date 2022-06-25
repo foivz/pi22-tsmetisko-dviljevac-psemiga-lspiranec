@@ -11,10 +11,12 @@ namespace Upravljanje_provjera_podataka
 {
     public class UprProPodataka
     {
-        Document document = new Document();
-        public void GeneriranjePDF(object podaci, int duljina)
+        public void GeneriranjePDF(string tekst)
         {
-            
+            Document document = new Document();
+            Page page = document.Pages.Add();
+            page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(tekst));
+            document.Save("document.pdf");
         }
     }
 }
