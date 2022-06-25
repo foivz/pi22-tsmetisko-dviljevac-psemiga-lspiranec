@@ -23,6 +23,7 @@ namespace FitZona
         public int paket_id { get; set; }
         public string naziv { get; set; }
         public Nullable<double> cijena { get; set; }
+        public Nullable<int> popust { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Korisnik> Korisnik { get; set; }
