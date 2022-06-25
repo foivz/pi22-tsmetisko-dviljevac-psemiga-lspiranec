@@ -127,31 +127,13 @@ namespace FitZona
 
         public string DohvatiPopust(int idKorisnika)
         {
-            string popust = "";
             using (var ctx = new FitZonaa_Entities())
             {
                 var query = from k in ctx.Korisnik
-                            
-                            where k.korisnik_id == idKorisnika
-                            select k.paket_id;
-                int? paketID = query.FirstOrDefault();
-                //TODO implentiraj bazu da mos dohvatit popust iz tablice paketa
-                if (paketID == 1)
-                {
-                    popust = "10";
-                    
-                }
-                else if (paketID == 2)
-                {
-                    popust = "20";
-                    
-                }
-                else if (paketID == 3)
-                {
-                    popust = "30";
-                    
-                }
-                return popust;
+                            from p in ctx.Paket
+                            where k.korisnik_id == idKorisnika && p.paket_id == k.paket_id
+                            select p.popust;
+                return query.FirstOrDefault().ToString();
             }
         }
 
