@@ -25,6 +25,7 @@ namespace FitZona
             comboBoxFilter.DataSource = u.DohvatiSportskeProstore();
             Osvjezi();
             buttonMeniRezervacijaSportskihProstora.Enabled = false;
+            dataGridViewSlobodniProstori.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void Osvjezi()
