@@ -70,5 +70,10 @@ namespace FitZona
         {
             u.GenerirajPDF(dataGridViewRezervacija);
         }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/foivz/pi22-tsmetisko-dviljevac-psemiga-lspiranec/wiki/Tehni%C4%8Dka-dokumentacija#281-slu%C4%8Daj-kori%C5%A1tenja-pla%C4%87anja-rezervacije");
+        }
     }
 }
