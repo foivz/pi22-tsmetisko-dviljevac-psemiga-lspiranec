@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Upravljanje_provjera_podataka;
 
 namespace FitZona
 {
     public class Upravljanje_podataka
     {
+        UprProPodataka upp = new UprProPodataka();
         public List<SlobodniProstori> DohvatiSlobodneProstore()
         {
             using (var ctx = new FitZonaa_Entities())
@@ -78,6 +81,23 @@ namespace FitZona
             }
 
             return provjera;
+        }
+
+        public void GenerirajPDF(DataGridView dataGridViewRezervacija)
+        {
+            string tekst = "";
+            //za svaki red
+            foreach (DataGridViewRow item in dataGridViewRezervacija.Rows)
+            {
+                //za svaku celiju u redu
+                foreach (DataGridViewCell cell in item.Cells)
+                {
+                    tekst += cell.Value.ToString();
+                    tekst += "          ";
+                }
+                tekst += "\n\n";
+            }
+            upp.GeneriranjePDF(tekst);
         }
 
         internal TimeSpan IzradiProgram(string sportskiProstor, string vrijemeIzradeOd, string ime, string idKorisnika)
