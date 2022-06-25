@@ -10,7 +10,7 @@ namespace FitZona
     {
         public List<SlobodniProstori> DohvatiSlobodneProstore()
         {
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from pt in ctx.prostor_termin
                             from s in ctx.Sportski_prostor
@@ -31,7 +31,7 @@ namespace FitZona
 
         internal object DohvatiSportskeProstore()
         {
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from s in ctx.Sportski_prostor
                             select s.ime;
@@ -43,7 +43,7 @@ namespace FitZona
         public string DohvatiCijenuClanarine(int idKorisnika)
         {
             string cijena = "";
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from k in ctx.Korisnik
                             from p in ctx.Paket
@@ -95,7 +95,7 @@ namespace FitZona
                 korisnik_id = IDKor,
                 sportski_prostor_id = IDSport
             };
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 ctx.Vlastiti_trening.Add(trening);
                 ctx.SaveChanges();
@@ -106,7 +106,7 @@ namespace FitZona
 
         internal object DohvatiFiltriraneSlobodneProstore(string ime)
         {
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from pt in ctx.prostor_termin
                             from s in ctx.Sportski_prostor
@@ -128,7 +128,7 @@ namespace FitZona
         public string DohvatiPopust(int idKorisnika)
         {
             string popust = "";
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from k in ctx.Korisnik
                             
@@ -158,7 +158,7 @@ namespace FitZona
         public object DohvatiRezervacijeKorisnika(string idKorisnika)
         {
             int idKor = int.Parse(idKorisnika);
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from r in ctx.Rezervacija
                             from s in ctx.Sportski_prostor
@@ -180,7 +180,7 @@ namespace FitZona
         public void PlatiRezervaciju(string idRezervacije)
         {
             int idRez = int.Parse(idRezervacije);
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from r in ctx.Rezervacija
                             where r.rezervacija_id == idRez
@@ -194,7 +194,7 @@ namespace FitZona
 
         public void UpisiRezervaciju(Rezervacija nova)
         {
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 ctx.Rezervacija.Add(nova);
                 ctx.SaveChanges();
@@ -203,7 +203,7 @@ namespace FitZona
 
         public void AzurirajTermine(TimeSpan vrijeme_od, int? duljina_rezervacija_sati, int? sportskiProstorID)
         {
-            using (var ctx = new FitZona_Entitiess())
+            using (var ctx = new FitZonaa_Entities())
             {
                 var query = from t in ctx.Termin
                             where t.vrijeme_od == vrijeme_od
