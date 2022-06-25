@@ -29,6 +29,7 @@ namespace FitZona
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelLogoFitZona = new System.Windows.Forms.Label();
             this.buttonMeniPrijavaZaIzraduVlastitihPrograma = new System.Windows.Forms.Button();
             this.buttonMeniMjesecnaClanarina = new System.Windows.Forms.Button();
@@ -61,6 +62,9 @@ namespace FitZona
             this.textBoxCijenaClanarine = new System.Windows.Forms.TextBox();
             this.labelPlacenaClanarina = new System.Windows.Forms.Label();
             this.labelPlacenaBool = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelSekunde = new System.Windows.Forms.Label();
+            this.labelSec = new System.Windows.Forms.Label();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
@@ -438,12 +442,40 @@ namespace FitZona
             this.labelPlacenaBool.TabIndex = 23;
             this.labelPlacenaBool.Text = "NE";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelSekunde
+            // 
+            this.labelSekunde.AutoSize = true;
+            this.labelSekunde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSekunde.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelSekunde.Location = new System.Drawing.Point(206, 416);
+            this.labelSekunde.Name = "labelSekunde";
+            this.labelSekunde.Size = new System.Drawing.Size(15, 16);
+            this.labelSekunde.TabIndex = 24;
+            this.labelSekunde.Text = "5";
+            // 
+            // labelSec
+            // 
+            this.labelSec.AutoSize = true;
+            this.labelSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSec.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelSec.Location = new System.Drawing.Point(227, 416);
+            this.labelSec.Name = "labelSec";
+            this.labelSec.Size = new System.Drawing.Size(55, 16);
+            this.labelSec.TabIndex = 25;
+            this.labelSec.Text = "sekundi";
+            // 
             // FrmPlacanjeMjesecneClanarine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(56)))), ((int)(((byte)(140)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelSec);
+            this.Controls.Add(this.labelSekunde);
             this.Controls.Add(this.labelPlacenaBool);
             this.Controls.Add(this.labelPlacenaClanarina);
             this.Controls.Add(this.textBoxCijenaClanarine);
@@ -498,5 +530,8 @@ namespace FitZona
         private System.Windows.Forms.TextBox textBoxCijenaClanarine;
         private System.Windows.Forms.Label labelPlacenaClanarina;
         private System.Windows.Forms.Label labelPlacenaBool;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelSekunde;
+        private System.Windows.Forms.Label labelSec;
     }
 }
