@@ -12,10 +12,14 @@ namespace FitZona
 {
     public partial class FrmPlacanjeMjesecneClanarine : Form
     {
+        int sekunde;
+        System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
         Upravljanje_podataka u;
         public FrmPlacanjeMjesecneClanarine()
         {
             InitializeComponent();
+            t.Interval = 1000; 
+            t.Tick += new EventHandler(timer1_Tick);
             buttonMeniMjesecnaClanarina.Enabled = false;
             u = new Upravljanje_podataka();
         }
@@ -32,6 +36,8 @@ namespace FitZona
                 FrmPlacanjeMjesecneClanarineOnline frm = new FrmPlacanjeMjesecneClanarineOnline();
                 frm.ShowDialog();
                 labelPlacenaBool.Text = frm.Placena;
+                sekunde = int.Parse(labelSekunde.Text);
+                t.Start();
             }
             else
             {
@@ -58,6 +64,19 @@ namespace FitZona
             this.Hide();
             u.OtvoriPrijavuZaIzraduVlastitihPrograma();
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (sekunde > -1)
+            {
+                labelSekunde.Text = sekunde--.ToString();
+            }
+            else if (sekunde <= 0)
+            {
+                timer1.Stop();
+                labelPlacenaBool.Text = "NE";
+            }
         }
     }
 }
