@@ -60,6 +60,7 @@ namespace FitZona
             this.dataGridViewRezervacija = new System.Windows.Forms.DataGridView();
             this.buttonPlatiRezervaciju = new System.Windows.Forms.Button();
             this.buttonPDF = new System.Windows.Forms.Button();
+            this.helpProviderPlacanjerezerviranogProstora = new System.Windows.Forms.HelpProvider();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
@@ -435,6 +436,11 @@ namespace FitZona
             this.buttonPDF.UseVisualStyleBackColor = false;
             this.buttonPDF.Click += new System.EventHandler(this.buttonPDF_Click);
             // 
+            // helpProviderPlacanjerezerviranogProstora
+            // 
+            this.helpProviderPlacanjerezerviranogProstora.HelpNamespace = "C:\\Users\\Viljevac\\Desktop\\6. SEMESTAR\\PROGRAMSKO INŽENJERSTVO\\pi22-tsmetisko-dvil" +
+    "jevac-psemiga-lspiranec\\Software\\FitZona\\help.chm";
+            // 
             // FrmPlacanjeRezerviranogProstora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,6 +454,7 @@ namespace FitZona
             this.Controls.Add(this.panelHardKodiranje);
             this.Controls.Add(this.panelIzbornik);
             this.Name = "FrmPlacanjeRezerviranogProstora";
+            this.helpProviderPlacanjerezerviranogProstora.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Placanje rezerviranog prostora";
             this.Load += new System.EventHandler(this.FrmPlacanjeRezerviranogProstora_Load);
@@ -494,5 +501,6 @@ namespace FitZona
         private System.Windows.Forms.DataGridView dataGridViewRezervacija;
         private System.Windows.Forms.Button buttonPlatiRezervaciju;
         private System.Windows.Forms.Button buttonPDF;
+        private System.Windows.Forms.HelpProvider helpProviderPlacanjerezerviranogProstora;
     }
 }
