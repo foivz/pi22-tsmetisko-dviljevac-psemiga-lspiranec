@@ -60,7 +60,6 @@ namespace FitZona
             this.dataGridViewRezervacija = new System.Windows.Forms.DataGridView();
             this.buttonPlatiRezervaciju = new System.Windows.Forms.Button();
             this.buttonPDF = new System.Windows.Forms.Button();
-            this.buttonHelp = new System.Windows.Forms.Button();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
@@ -70,7 +69,6 @@ namespace FitZona
             // panelIzbornik
             // 
             this.panelIzbornik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(46)))));
-            this.panelIzbornik.Controls.Add(this.buttonHelp);
             this.panelIzbornik.Controls.Add(this.buttonMeniPrijavaZaIzraduVlastitihPrograma);
             this.panelIzbornik.Controls.Add(this.buttonMeniMjesecnaClanarina);
             this.panelIzbornik.Controls.Add(this.buttonMeniPlacanjeProstora);
@@ -437,23 +435,6 @@ namespace FitZona
             this.buttonPDF.UseVisualStyleBackColor = false;
             this.buttonPDF.Click += new System.EventHandler(this.buttonPDF_Click);
             // 
-            // buttonHelp
-            // 
-            this.buttonHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonHelp.FlatAppearance.BorderSize = 0;
-            this.buttonHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
-            this.buttonHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(27)))), ((int)(((byte)(138)))));
-            this.buttonHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHelp.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonHelp.Location = new System.Drawing.Point(0, 514);
-            this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(200, 46);
-            this.buttonHelp.TabIndex = 5;
-            this.buttonHelp.Text = "HELP";
-            this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
-            // 
             // FrmPlacanjeRezerviranogProstora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,6 +494,5 @@ namespace FitZona
         private System.Windows.Forms.DataGridView dataGridViewRezervacija;
         private System.Windows.Forms.Button buttonPlatiRezervaciju;
         private System.Windows.Forms.Button buttonPDF;
-        private System.Windows.Forms.Button buttonHelp;
     }
 }
