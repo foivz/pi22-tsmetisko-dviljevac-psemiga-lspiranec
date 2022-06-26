@@ -63,6 +63,7 @@ namespace FitZona
             this.labelImePrograma = new System.Windows.Forms.Label();
             this.textBoxDuljinaRezervacije = new System.Windows.Forms.TextBox();
             this.labelDuljinaRezervacije = new System.Windows.Forms.Label();
+            this.helpProviderIzradaVlastitihTreningPrograma = new System.Windows.Forms.HelpProvider();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
@@ -457,6 +458,11 @@ namespace FitZona
             this.labelDuljinaRezervacije.TabIndex = 24;
             this.labelDuljinaRezervacije.Text = "Duljina rezervacije";
             // 
+            // helpProviderIzradaVlastitihTreningPrograma
+            // 
+            this.helpProviderIzradaVlastitihTreningPrograma.HelpNamespace = "C:\\Users\\Viljevac\\Desktop\\6. SEMESTAR\\PROGRAMSKO INŽENJERSTVO\\pi22-tsmetisko-dvil" +
+    "jevac-psemiga-lspiranec\\Software\\FitZona\\help.chm";
+            // 
             // FrmIzradaVlastitihPrograma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,6 +479,7 @@ namespace FitZona
             this.Controls.Add(this.panelHardKodiranje);
             this.Controls.Add(this.panelIzbornik);
             this.Name = "FrmIzradaVlastitihPrograma";
+            this.helpProviderIzradaVlastitihTreningPrograma.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmIzradaVlastitihPrograma";
             this.Load += new System.EventHandler(this.FrmIzradaVlastitihPrograma_Load);
@@ -522,5 +529,6 @@ namespace FitZona
         private System.Windows.Forms.Label labelImePrograma;
         private System.Windows.Forms.TextBox textBoxDuljinaRezervacije;
         private System.Windows.Forms.Label labelDuljinaRezervacije;
+        private System.Windows.Forms.HelpProvider helpProviderIzradaVlastitihTreningPrograma;
     }
 }
