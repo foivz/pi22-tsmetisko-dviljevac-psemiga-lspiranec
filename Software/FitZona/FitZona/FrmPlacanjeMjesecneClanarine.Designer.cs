@@ -65,6 +65,7 @@ namespace FitZona
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelSekunde = new System.Windows.Forms.Label();
             this.labelSec = new System.Windows.Forms.Label();
+            this.helpProviderPlacanjeMjesecneClanarine = new System.Windows.Forms.HelpProvider();
             this.panelIzbornik.SuspendLayout();
             this.panelLogoFitZona.SuspendLayout();
             this.panelHardKodiranje.SuspendLayout();
@@ -468,6 +469,11 @@ namespace FitZona
             this.labelSec.TabIndex = 25;
             this.labelSec.Text = "sekundi";
             // 
+            // helpProviderPlacanjeMjesecneClanarine
+            // 
+            this.helpProviderPlacanjeMjesecneClanarine.HelpNamespace = "C:\\Users\\Viljevac\\Desktop\\6. SEMESTAR\\PROGRAMSKO INŽENJERSTVO\\pi22-tsmetisko-dvil" +
+    "jevac-psemiga-lspiranec\\Software\\FitZona\\help.chm";
+            // 
             // FrmPlacanjeMjesecneClanarine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,6 +490,7 @@ namespace FitZona
             this.Controls.Add(this.panelHardKodiranje);
             this.Controls.Add(this.panelIzbornik);
             this.Name = "FrmPlacanjeMjesecneClanarine";
+            this.helpProviderPlacanjeMjesecneClanarine.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Placanje mjesecne clanarine";
             this.Load += new System.EventHandler(this.FrmPlacanjeMjesecneClanarine_Load);
@@ -533,5 +540,6 @@ namespace FitZona
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelSekunde;
         private System.Windows.Forms.Label labelSec;
+        private System.Windows.Forms.HelpProvider helpProviderPlacanjeMjesecneClanarine;
     }
 }
