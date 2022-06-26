@@ -438,8 +438,7 @@ namespace FitZona
             // 
             // helpProviderPlacanjerezerviranogProstora
             // 
-            this.helpProviderPlacanjerezerviranogProstora.HelpNamespace = "C:\\Users\\Viljevac\\Desktop\\6. SEMESTAR\\PROGRAMSKO INŽENJERSTVO\\pi22-tsmetisko-dvil" +
-    "jevac-psemiga-lspiranec\\Software\\FitZona\\help.chm";
+            this.helpProviderPlacanjerezerviranogProstora.HelpNamespace = "help.chm";
             // 
             // FrmPlacanjeRezerviranogProstora
             // 
